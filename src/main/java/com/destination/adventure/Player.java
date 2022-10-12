@@ -9,6 +9,8 @@ public class Player {
   private List<String> inventory = new ArrayList<>();
   private int wallet = 0;
 
+  // current Location??
+
 
   public Player(String name) {
     setName(name);
