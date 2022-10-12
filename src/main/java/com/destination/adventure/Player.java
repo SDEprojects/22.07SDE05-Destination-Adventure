@@ -38,4 +38,9 @@ public class Player {
   public void setWallet(int wallet) {
     this.wallet = wallet;
   }
+
+  @Override
+  public String toString() {
+    return super.toString();
+  }
 }
