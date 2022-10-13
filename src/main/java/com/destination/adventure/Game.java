@@ -82,10 +82,19 @@ public class Game {
     // TODO: User can type help to see a list of commands
     else if (text[0].equalsIgnoreCase("help")) {
       System.out.println("Skip: No worries! Let's review our objectives!");
+
+
       // TODO: Add more thorough help instructions
       //  user objective - 4+ jewels unlocks teleport option for user to treasure
       //  user move/command options (before travel, during travel, quit game)
       //  user inventory (what do you currently have)
+    }
+    else if (text[0].equalsIgnoreCase("status")) {
+      System.out.println("Here is your current status:\n");
+      System.out.println(player.getCurrentLocation());
+      System.out.println("$" + player.getWallet());
+      System.out.println(player.getInventory());
+
     }
   }
 
