@@ -1,0 +1,15 @@
+{
+  "location": {
+    "start": {
+      "city": "Seattle",
+      "commands": [
+        "visit bank",
+        "go to Africa"
+      ],
+      "bank": [
+        "rob bank",
+        "withdraw from bank account"
+      ]
+    }
+  }
+}
