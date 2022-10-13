@@ -1,13 +1,12 @@
 package com.destination.adventure;
 
-import java.util.Scanner;
-
 public class Main {
 
   public static void main(String[] args) {
 
     // Game set-up, Greeting & Objective
     Game game = new Game(State.GAME_ACTIVE);
+
 
     if (game.getState() == State.GAME_ACTIVE) {
       game.startGame();

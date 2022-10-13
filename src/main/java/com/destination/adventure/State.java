@@ -10,6 +10,10 @@ public enum State {
     }
   };
 
+  // TODO: Add state for destination (currently at a destination), flying (pending next destination),
+  //  treasure available (when the user has all four jewels, they should be prompted after travel (destination)
+  //  that they can teleport to the secret location).
+
   public boolean gameOver(){
     return false;
   }
