@@ -11,11 +11,9 @@ public class Main {
 
     if (game.getState() == State.GAME_ACTIVE) {
       game.startGame();
-      String name = game.playerSetUp();
-      Player player1 = new Player(name);
+      Player player = game.playerSetUp();
       game.objective();
-      String answer = game.playOrNot();
-      if (answer == "no") {
+      if (!game.playOrNot()) {
         game.setState(State.GAME_OVER);
       }
     }
