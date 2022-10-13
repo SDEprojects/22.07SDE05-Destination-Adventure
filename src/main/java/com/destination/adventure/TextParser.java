@@ -1,5 +1,6 @@
 package com.destination.adventure;
 
+import java.util.Locale;
 import java.util.Scanner;
 
 public class TextParser {
@@ -8,7 +9,8 @@ public class TextParser {
     String[] command;
     Scanner input = new Scanner(System.in);
     System.out.print(">> ");
-    String userCommand = input.nextLine();
+    String userCommand = input.nextLine().toLowerCase();
+    // TODO:  implement capitalization of first letter only
     // takes whitespace and special characters out of user command if exists,turns string into string array to return
     command = userCommand.replaceAll("[^\\w\\s]", "").split("\\s+");
     return command;

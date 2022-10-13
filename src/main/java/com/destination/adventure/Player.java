@@ -9,19 +9,15 @@ public class Player {
   private List<String> inventory = new ArrayList<>();
   private int wallet = 0;
 
-  // current Location??
+  private String currentLocation = "Seattle";
 
-
-  public Player(String name, List<String> inventory, int wallet) {
-    this.name = name;
-    this.inventory = inventory;
-    this.wallet = wallet;
-  }
 
   public Player(String name) {
     setName(name);
   }
 
+  public Player() {
+  }
 
   public String getName() {
     return name;
@@ -45,6 +41,14 @@ public class Player {
 
   public void setWallet(int wallet) {
     this.wallet = wallet;
+  }
+
+  public String getCurrentLocation() {
+    return currentLocation;
+  }
+
+  public void setCurrentLocation(String currentLocation) {
+    this.currentLocation = currentLocation;
   }
 
   @Override
