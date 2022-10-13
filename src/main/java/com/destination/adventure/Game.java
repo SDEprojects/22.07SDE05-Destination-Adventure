@@ -1,11 +1,11 @@
 package com.destination.adventure;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Game {
 
   private State state;
-
   public Game(State state) {
     this.state = state;
   }
@@ -28,7 +28,7 @@ public class Game {
   }
 
   // grab player name to create player instance in main class
-  public String playerSetUp() {
+  public Player playerSetUp() {
     Scanner input = new Scanner(System.in);
     // Prompt user for name
     System.out.println("\nHmm, you look new around here...\n"
@@ -36,8 +36,8 @@ public class Game {
     String name = input.nextLine().trim();
     System.out.printf("\nWelcome to Destination Adventure, %s! I am your tour guide, Skip!%n",
         name);
-    // return player name
-    return name;
+    // return player object
+    return new Player(name, new ArrayList<>(), 0);
   }
 
   public void objective() {
@@ -50,17 +50,18 @@ public class Game {
 
 
   // use .equals() to compare strings for equality
-  public String playOrNot() {
+  public boolean playOrNot() {
     Scanner input = new Scanner(System.in);
     // ask user if they want to play or not
 
     while (true) {
-      System.out.println("\n Would you like to play? Type yes or no.");
+      System.out.println("\nWould you like to play? Type yes or no.");
       String answer = input.nextLine().trim();
+      checkInput(answer);
       if (answer.equals("yes")) {
-        return "yes";
+        return true;
       } else if (answer.equals("no")) {
-        return "no";
+        return false;
       } else {
         System.out.println("Please enter either yes or no.");
       }
@@ -73,6 +74,19 @@ public class Game {
 
   public void setState(State state) {
     this.state = state;
+  }
+
+  public void checkInput(String text) {
+    if (text.equalsIgnoreCase("quit")) {
+      System.out.println("Quitting the game!!");
+      System.exit(0);
+    }
+    else if (text.equalsIgnoreCase("list")) {
+      // TODO: return list of jewels
+    }
+    else if (text.equalsIgnoreCase("location")) {
+      // TODO: return location name
+    }
   }
 }
 

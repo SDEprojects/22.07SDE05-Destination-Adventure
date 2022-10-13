@@ -12,6 +12,12 @@ public class Player {
   // current Location??
 
 
+  public Player(String name, List<String> inventory, int wallet) {
+    this.name = name;
+    this.inventory = inventory;
+    this.wallet = wallet;
+  }
+
   public Player(String name) {
     setName(name);
   }
