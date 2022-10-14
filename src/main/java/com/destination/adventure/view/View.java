@@ -38,6 +38,7 @@ public class View {
       + "     look [item name]: review an item's description at the store.\n"
       + "begin: begin the adventure at your current destination to find the jewel!\n";
 
+
   public String getTITLE() {
     return TITLE;
   }
