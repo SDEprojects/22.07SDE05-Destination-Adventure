@@ -54,7 +54,7 @@ public class Game {
 
   public String[] nextInput () {
     // TODO: Edit to take in player's current location
-    System.out.println("You have landed in Seattle, what would you like to do next? --- Type help at any time.");
+    System.out.printf("You are in %s, what would you like to do next? --- Type help at any time.", player.getCurrentLocation());
     return input.readUserInput();
   };
 
@@ -64,15 +64,8 @@ public class Game {
       System.out.println("Quitting the game!!");
       System.exit(0);
     }
-    // TODO: User can type help to see a list of commands
     else if (text[0].equalsIgnoreCase("help")) {
       System.out.println(view.getHELP());
-
-
-      // TODO: Add more thorough help instructions
-      //  user objective - 4+ jewels unlocks teleport option for user to treasure
-      //  user move/command options (before travel, during travel, quit game)
-      //  user inventory (what do you currently have)
     }
     else if (text[0].equalsIgnoreCase("status")) {
       System.out.println("Here is your current status:\n");
