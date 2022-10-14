@@ -18,6 +18,13 @@ dependencies {
     def junitVersion = '5.9.0'
     testImplementation "org.junit.jupiter:junit-jupiter:${junitVersion}"
     testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:${junitVersion}"
+<<<<<<< Updated upstream
+    // https://mvnrepository.com/artifact/com.googlecode.json-simple/json-simple
+    implementation group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1.1'
+=======
+    implementation group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1.1'
+
+>>>>>>> Stashed changes
 }
 
 test {

@@ -8,16 +8,15 @@ public class Player {
   private String name;
   private List<String> inventory = new ArrayList<>();
   private int wallet = 0;
-
   private Destination currentLocation = new Destination("North America", "USA", "Seattle", null);
 
+  public Player() {
+  }
 
   public Player(String name) {
     setName(name);
   }
 
-  public Player() {
-  }
 
   public String getName() {
     return name;
