@@ -1,4 +1,8 @@
-package com.destination.adventure;
+package com.destination.adventure.controller;
+
+import com.destination.adventure.model.Game;
+import com.destination.adventure.model.Player;
+import com.destination.adventure.model.State;
 
 public class Main {
 
@@ -8,8 +12,6 @@ public class Main {
     Game game = new Game(State.GAME_ACTIVE);
 
     game.startGame();
-    Player player = game.playerSetUp();
-    game.objective();
 
     if (!game.playOrNot()) {
       game.setState(State.GAME_OVER);

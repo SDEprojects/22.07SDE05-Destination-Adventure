@@ -1,4 +1,4 @@
-package com.destination.adventure;
+package com.destination.adventure.model;
 
 public enum State {
   GAME_ACTIVE,

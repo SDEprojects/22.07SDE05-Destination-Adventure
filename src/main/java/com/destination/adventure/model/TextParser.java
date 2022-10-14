@@ -1,4 +1,4 @@
-package com.destination.adventure;
+package com.destination.adventure.model;
 
 import java.util.Locale;
 import java.util.Scanner;
