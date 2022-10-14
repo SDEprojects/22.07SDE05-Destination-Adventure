@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class TextParser {
 
-  public String[] readUserInput() {
+  public static String[] readUserInput() {
     String[] command;
     Scanner input = new Scanner(System.in);
     System.out.print(">> ");
@@ -15,6 +15,7 @@ public class TextParser {
     command = userCommand.replaceAll("[^\\w\\s]", "").split("\\s+");
     return command;
   }
+
 //  Testing parser function
 //  public static void main(String[] args) {
 //    TextParser test = new TextParser();
