@@ -9,7 +9,7 @@ public class Player {
   private List<String> inventory = new ArrayList<>();
   private int wallet = 0;
 
-  private String currentLocation = "Seattle";
+  private Destination currentLocation = new Destination("North America", "USA", "Seattle", null);
 
 
   public Player(String name) {
@@ -43,11 +43,11 @@ public class Player {
     this.wallet = wallet;
   }
 
-  public String getCurrentLocation() {
+  public Destination getCurrentLocation() {
     return currentLocation;
   }
 
-  public void setCurrentLocation(String currentLocation) {
+  public void setCurrentLocation(Destination currentLocation) {
     this.currentLocation = currentLocation;
   }
 
