@@ -1,4 +1,4 @@
-package com.destination.adventure;
+package com.destination.adventure.model;
 
 import java.util.ArrayList;
 import java.util.List;
