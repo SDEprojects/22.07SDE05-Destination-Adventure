@@ -1,11 +1,11 @@
-package com.destination.adventure.model;
+package com.destination.adventure.controller;
 
 import java.util.Locale;
 import java.util.Scanner;
 
 public class TextParser {
 
-  public static String[] readUserInput() {
+  public String[] readUserInput() {
     String[] command;
     Scanner input = new Scanner(System.in);
     System.out.print(">> ");

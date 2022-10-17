@@ -1,5 +1,7 @@
 package com.destination.adventure.model;
 
+import com.destination.adventure.controller.InputHandler;
+import com.destination.adventure.controller.TextParser;
 import com.destination.adventure.view.View;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,6 +13,7 @@ public class Game {
   private TextParser input = new TextParser();
   private Player player = new Player();
   private View view = new View();
+  private InputHandler handler = new InputHandler();
 
   public Game(State state) {
     populateDestination();
@@ -24,11 +27,7 @@ public class Game {
 
   // Prompt user for name and Welcome message.
   public Player playerSetUp() {
-    System.out.println("\nHmm, you look new around here...\n"
-        + "What is your name?");
-    String[] command = TextParser.readUserInput();
-    System.out.printf("\nWelcome to Destination Adventure, %S! I am your tour guide, Skip!%n",
-        command[0]);
+    String[] command = handler.setUp();
     player.setName(command[0]);
     return player;
   }
@@ -37,24 +36,6 @@ public class Game {
   public void objective() {
     System.out.println(view.getOBJECTIVE());
   }
-
-
-  // use .equals() to compare strings for equality
-  public boolean playOrNot() {
-    while (true) {
-      System.out.println("\nWould you like to play? Type yes or no.");
-      String[] answer = processInput();
-
-      if (answer[0].equals("yes")) {
-        return true;
-      } else if (answer[0].equals("no")) {
-        return false;
-      } else {
-        System.out.println("Please enter either yes or no.");
-      }
-    }
-  }
-
 
   //  Player begin the game and the current location is Seattle.
   public void playGame() {
@@ -69,7 +50,7 @@ public class Game {
       for (Destination d : destinations) {
         System.out.println(d.getCountry());
       }
-      String[] input = processInput();
+      String[] input = handler.processInput(player);
 
 // Cheking if the user inputs verb and noun to navigate to different location
       if (input.length < 2) {
@@ -110,7 +91,7 @@ public class Game {
         System.out.println(option);
       }
       System.out.println("Type 'buy' followed by the item you want to buy. ");
-      String[] input = processInput();
+      String[] input = handler.processInput(player);
       if (input.length < 2) {
         System.out.println("Input Invalid! Type 'buy' followed by the item you want to buy.");
         continue;
@@ -135,37 +116,6 @@ public class Game {
       break;
     }
 
-  }
-
-  //processInput method to check the users input.
-  private String[] processInput() {
-    String[] input = TextParser.readUserInput();
-    checkInput(input);
-    return input;
-  }
-
-
-  public String[] nextInput () {
-    // TODO: Edit to take in player's current location
-    System.out.printf("What would you like to do?");
-    return input.readUserInput();
-  };
-
-  // put at top of while loop so user input is constantly checking against these commands
-  public void checkInput(String[] text) {
-    if (text[0].equalsIgnoreCase("quit")) {
-      System.out.println("Quitting the game!!");
-      System.exit(0);
-    }
-    else if (text[0].equalsIgnoreCase("help")) {
-      System.out.println(view.getHELP());
-    }
-    else if (text[0].equalsIgnoreCase("status")) {
-      System.out.println("Here is your current status:\n");
-      System.out.println("Location: " + player.getCurrentLocation().getCountry());
-      System.out.println("Wallet $" + player.getWallet());
-      System.out.println("Inventory: " + player.getInventory());
-    }
   }
 
   public State getState() {
@@ -246,7 +196,6 @@ public class Game {
   }
 
   // SEATTLE HARD CODING
-
   // bank method
   public void goToBank(Player player) {
     // prompt the user if they would like to visit the bank
@@ -255,23 +204,17 @@ public class Game {
     // while loop
     while (true) {
       // give the user two options: rob the bank or check bank account
-      System.out.println("Would you like to: \n"
-          + "(a) rob the bank [type: rob bank]\n"
-          + "(b) check your bank account [type: check account]\n"
-          + "(c) bypass bank and go to initial adventure [type: no bank]\n");
-      String[] response = nextInput();
+      System.out.println(view.BANK_OPTIONS);
+      String[] response = handler.processInput(player);
       // if user input is rob bank, rob the bank
       if (response[0].equalsIgnoreCase("rob")) {
-        System.out.println("You have decided to rob the bank!\n"
-            + "You hand the teller a note demanding money with no funny business.\n"
-            + "Your wallet increases by $10000.\n");
+        System.out.println(view.ROB_OPTION);
         // adjust wallet to include $10000
         player.setWallet(10000);
         break;
         // else if user input is check bank account
       } else if (response[0].equalsIgnoreCase("check")) {
-        System.out.println("You ask the teller to check your bank account. You have $5000.\n"
-            + "You choose to withdraw all of your money. You hope you have enough to pay for your adventures!\n");
+        System.out.println(view.CHECK_BANK_ACCOUNT);
         // give the user $600
         player.setWallet(600);
         break;
