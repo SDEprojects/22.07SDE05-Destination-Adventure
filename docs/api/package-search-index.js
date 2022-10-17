@@ -1,1 +1,0 @@
-packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"com.destination.adventure.controller"},{"l":"com.destination.adventure.model"},{"l":"com.destination.adventure.view"}]
