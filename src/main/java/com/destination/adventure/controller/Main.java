@@ -10,15 +10,16 @@ public class Main {
 
     // Game set-up, Greeting & Objective
     Game game = new Game(State.GAME_ACTIVE);
+    InputHandler handler = new InputHandler();
 
-   game.startGame();
+    game.startGame();
 
     Player player = game.playerSetUp();
     game.objective();
 
 
 
-    if (!game.playOrNot()) {
+    if (!handler.playOrNot()) {
       game.setState(State.GAME_OVER);
     }
 
