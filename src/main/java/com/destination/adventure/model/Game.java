@@ -110,8 +110,8 @@ public class Game {
         System.out.println(View.INVALID_SELECTION);
         continue;
       }
-      System.out.printf(View.VALID_SELECTION,
-          player.getCurrentLocation().getPlace(), option);
+      player.getInventory().add(option);
+      System.out.printf(View.VALID_SELECTION, player.getCurrentLocation().getPlace(), option);
       input = handler.processInput(player);
 
     }
