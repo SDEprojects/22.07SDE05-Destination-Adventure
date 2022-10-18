@@ -3,8 +3,10 @@ package com.destination.adventure.model;
 import com.destination.adventure.controller.InputHandler;
 import com.destination.adventure.controller.TextParser;
 import com.destination.adventure.view.View;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import org.json.simple.parser.ParseException;
 
 public class Game {
 
@@ -14,6 +16,7 @@ public class Game {
   private Player player = new Player();
   private View view = new View();
   private InputHandler handler = new InputHandler();
+  private Destination dest = new Destination();
 
 
   public Game(State state) {
@@ -39,7 +42,7 @@ public class Game {
   }
 
 //    Player begin the game and the current location is Seattle.
-  public void playGame() {
+  public void playGame() throws IOException, ParseException {
     System.out.println(
         View.STARTING_LOCATION);
     // player gets the opportunity to visit the bank before embarking on first destination
@@ -83,6 +86,7 @@ public class Game {
     }
 
     while (true) {
+      dest.getDescription("italy");
       System.out.printf("Welcome to %s. ", player.getCurrentLocation().getCountry());
       System.out.printf("The jewel is in %s. ", player.getCurrentLocation().getPlace());
       System.out.println(View.AIRPORT);

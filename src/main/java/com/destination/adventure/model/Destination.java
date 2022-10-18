@@ -3,6 +3,7 @@ package com.destination.adventure.model;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Map;
@@ -34,11 +35,10 @@ public class Destination {
   public Destination() {
   }
 
-  public static void getDescription(String destination)
+  public void getDescription(String destination)
       throws IOException, ParseException {
     JSONParser parser = new JSONParser();
-    JSONObject jsonObj = (JSONObject) parser.parse(
-        new FileReader("src/resources/destinations.json"));
+    JSONObject jsonObj = (JSONObject) parser.parse(new InputStreamReader(Destination.class.getClassLoader().getResourceAsStream("destinations.json")));
 
     Map descList = (Map) jsonObj.get(destination);
     Iterator<Entry> itr = descList.entrySet().iterator();
@@ -55,8 +55,7 @@ public class Destination {
 
   public static void getStoreItems(String destination) throws IOException, ParseException {
     JSONParser parser = new JSONParser();
-    JSONObject jsonObj = (JSONObject) parser.parse(
-        new FileReader("src/resources/destinations.json"));
+    JSONObject jsonObj = (JSONObject) parser.parse(new InputStreamReader(Destination.class.getClassLoader().getResourceAsStream("destinations.json")));
 
     Map descList = (Map) jsonObj.get(destination);
     Iterator<Entry> itr = descList.entrySet().iterator();
@@ -69,6 +68,10 @@ public class Destination {
         System.out.println("Airport Store: " + value);
       }
     }
+  }
+
+  public static void main(String[] args) throws IOException, ParseException {
+    getStoreItems("ecuador");
   }
 
   public String getContinent() {
