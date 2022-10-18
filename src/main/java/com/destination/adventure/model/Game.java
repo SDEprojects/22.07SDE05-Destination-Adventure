@@ -15,6 +15,7 @@ public class Game {
   private View view = new View();
   private InputHandler handler = new InputHandler();
 
+
   public Game(State state) {
     populateDestination();
     this.state = state;
@@ -22,7 +23,7 @@ public class Game {
 
   //Display title
   public void startGame() {
-    System.out.println(view.getTITLE());
+    System.out.println(View.TITLE);
   }
 
   // Prompt user for name and Welcome message.
@@ -34,28 +35,28 @@ public class Game {
 
   //  Display game objective
   public void objective() {
-    System.out.println(view.getOBJECTIVE());
+    System.out.println(View.OBJECTIVE);
   }
 
-  //  Player begin the game and the current location is Seattle.
+//    Player begin the game and the current location is Seattle.
   public void playGame() {
     System.out.println(
-        "\nYou are currently in Seattle. --- Type help at any time.\n");
+        View.STARTING_LOCATION);
     // player gets the opportunity to visit the bank before embarking on first destination
     goToBank(player);
 
 //  Gives player different destination they can go.
     while (true) {
-      System.out.println("Where would you like to go? Here are the list of destination: ");
+      System.out.println(View.DESTINATION);
       for (Destination d : destinations) {
         System.out.println(d.getCountry());
       }
       String[] input = handler.processInput(player);
 
-// Cheking if the user inputs verb and noun to navigate to different location
+// Checking if the user inputs verb and noun to navigate to different location
       if (input.length < 2) {
         System.out.println(
-            "Input Invalid. Type verb and noun. For example if you want to go to Nepal, type 'go Nepal' ");
+            View.INVALID);
         continue;
       }
 //  Setting variables
@@ -73,10 +74,10 @@ public class Game {
 
 //  If the user inputs invalid country
       if (!validCountry) {
-        System.out.println("Country Name Invalid. Please try again");
+        System.out.println(View.INVALID_COUNTRY);
         continue;
       }
-      System.out.println("Great!! We are going to " + countryName);
+      System.out.println(View.VALID_COUNTRY + countryName);
       player.setCurrentLocation(destination);
       break;
     }
@@ -84,16 +85,15 @@ public class Game {
     while (true) {
       System.out.printf("Welcome to %s. ", player.getCurrentLocation().getCountry());
       System.out.printf("The jewel is in %s. ", player.getCurrentLocation().getPlace());
-      System.out.println(
-          "What do you want to do next? In the airport store, you have the following options.");
+      System.out.println(View.AIRPORT);
 
       for (String option : player.getCurrentLocation().getOptions()) {
         System.out.println(option);
       }
-      System.out.println("Type 'buy' followed by the item you want to buy. ");
+      System.out.println(View.BUY);
       String[] input = handler.processInput(player);
       if (input.length < 2) {
-        System.out.println("Input Invalid! Type 'buy' followed by the item you want to buy.");
+        System.out.println(View.INVALID_BUY);
         continue;
       }
       String option = input[1];
@@ -107,13 +107,13 @@ public class Game {
       }
 
       if (!validOption) {
-        System.out.println(
-            "Input Invalid. Selected option is not available in this store. Type 'buy' followed by the item you want to buy.");
+        System.out.println(View.INVALID_SELECTION);
         continue;
       }
-      System.out.printf("Great, you are in %s and you have %s in your possession",
+      System.out.printf(View.VALID_SELECTION,
           player.getCurrentLocation().getPlace(), option);
-      break;
+      input = handler.processInput(player);
+
     }
 
   }
@@ -198,32 +198,35 @@ public class Game {
   // SEATTLE HARD CODING
   // bank method
   public void goToBank(Player player) {
+
     // prompt the user if they would like to visit the bank
-    System.out.printf("Before you embark on your journey %S, would you like to visit the bank to increase"
-        + " your funds? You currently have $0 in your wallet.\n", player.getName());
+    System.out.printf(View.START_ADVENTURE, player.getName());
+
     // while loop
     while (true) {
       // give the user two options: rob the bank or check bank account
-      System.out.println(view.BANK_OPTIONS);
+      System.out.println(View.BANK_OPTIONS);
       String[] response = handler.processInput(player);
+
       // if user input is rob bank, rob the bank
       if (response[0].equalsIgnoreCase("rob")) {
-        System.out.println(view.ROB_OPTION);
+        System.out.println(View.ROB_OPTION);
+
         // adjust wallet to include $10000
         player.setWallet(10000);
         break;
         // else if user input is check bank account
       } else if (response[0].equalsIgnoreCase("check")) {
-        System.out.println(view.CHECK_BANK_ACCOUNT);
+        System.out.println(View.CHECK_BANK_ACCOUNT);
         // give the user $600
         player.setWallet(600);
         break;
       } else if (response[0].equalsIgnoreCase("no")) {
-        System.out.println("You decide not to go to the bank.\n");
+        System.out.println(View.NO_BANK);
         break;
       } else {
         // else invalid input, try again
-        System.out.println("Invalid input. Please try again.\n");
+        System.out.println(View.INPUT_INVALID);
       }
     }
   }
