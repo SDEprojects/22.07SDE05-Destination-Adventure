@@ -1,25 +1,27 @@
 package com.destination.adventure.controller;
 
+import com.destination.adventure.model.Game;
 import com.destination.adventure.model.Player;
+import com.destination.adventure.model.State;
 import com.destination.adventure.view.View;
 
 public class InputHandler {
 
   private TextParser input = new TextParser();
-  private View view = new View();
+  private static View view = new View();
+
 
   public String[] setUp() {
-    System.out.println("\nHmm, you look new around here...\n"
-        + "What is your name?");
+    System.out.println(View.PLAYER_NAME);
     String[] command = input.readUserInput();
-    System.out.printf("\nWelcome to Destination Adventure, %S! I am your tour guide, Skip!%n",
+    System.out.printf(View.WELCOME,
         command[0]);
     return command;
   }
 
   public boolean playOrNot() {
     while (true) {
-      System.out.println("\nWould you like to play? Type yes or no.");
+      System.out.println(View.DECISION);
       String[] answer = nextInput();
 
       if (answer[0].equals("yes")) {
@@ -27,7 +29,7 @@ public class InputHandler {
       } else if (answer[0].equals("no")) {
         return false;
       } else {
-        System.out.println("Please enter either yes or no.");
+        System.out.println(View.DECISION);
       }
     }
   }
@@ -52,13 +54,17 @@ public class InputHandler {
       System.exit(0);
     }
     else if (text[0].equalsIgnoreCase("help")) {
-      System.out.println(view.getHELP());
+      System.out.println(View.HELP);
     }
     else if (text[0].equalsIgnoreCase("status")) {
       System.out.println("Here is your current status:\n");
       System.out.println("Location: " + player.getCurrentLocation().getCountry());
       System.out.println("Wallet $" + player.getWallet());
       System.out.println("Inventory: " + player.getInventory());
+    }
+    else if (text[0].equalsIgnoreCase("inventory")){
+      System.out.println(View.INVENTORY);
+      System.out.println(player.getInventory());
     }
   }
 
