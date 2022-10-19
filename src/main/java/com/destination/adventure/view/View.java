@@ -69,7 +69,9 @@ public class View {
 
   public static final String DECISION = "\n Would you like to play? Type yes or no. ";
 
-  public static final String DESTINATION = "Where would you like to go? Here are the list of destination: ";
+  // hard code for sprint 2, refactor in sprint 3
+  public static final String DESTINATION = "Where would you like to go? Here are the list of destination: Italy, Ecuador, Australia, Zambia, Hawaii, "
+      + "Nepal, and Antarctica!";
 
   public static final String INVALID = "Input Invalid. Type verb and noun. For example if you want to go to Nepal, type 'go Nepal' ";
 
@@ -89,6 +91,7 @@ public class View {
 
   public static final String INVENTORY = "The following is the list of items you have in your possession. ";
 
+  public static final String[] COUNTRIES = {"italy", "ecuador", "australia", "zambia", "hawaii", "nepal", "antarctica"};
 }
 
 
