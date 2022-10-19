@@ -5,6 +5,7 @@ import com.destination.adventure.controller.TextParser;
 import com.destination.adventure.view.View;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import org.json.simple.parser.ParseException;
 
@@ -46,7 +47,7 @@ public class Game {
     System.out.println(View.STARTING_LOCATION);
     goToBank(player);
 
-    while(true) {
+    while (true) {
       // give user destination options
       System.out.println(View.DESTINATION);
       // grab user input
@@ -63,7 +64,10 @@ public class Game {
       System.out.println(worldClass.world.get(countryName).getDescription());
       // Provide player with tips to get the jewel at that location
       System.out.println(worldClass.guidePrompts.get(countryName).getInstructions());
+      goTOAirport(countryName);
     }
+
+
   }
 
 //    Player begin the game and the current location is Seattle.
@@ -258,5 +262,32 @@ public class Game {
         System.out.println(View.INPUT_INVALID);
       }
     }
+  }
+
+  public void goTOAirport(String location) {
+    System.out.println(View.AIRPORT);
+    System.out.println(Arrays.toString(worldClass.world.get(location).getStore()));
+
+
+    while (true) {
+      String[] response = handler.processInput(player);
+      if (response[0].equalsIgnoreCase("buy")) {
+        if (worldClass.items.stream().anyMatch(x -> x.getName().equalsIgnoreCase(response[1]))) {
+          player.getInventory().add(response[1]);
+          player.setWallet(player.getWallet() - 500);
+          break;
+        }
+      } else if (response[0].equalsIgnoreCase("look")) {
+        if (worldClass.items.stream().anyMatch(x -> x.getName().equalsIgnoreCase(response[1]))) {
+          System.out.println(worldClass.itemsAirport.get(response[1]).getDescription());
+        }else{
+          System.out.println(View.INPUT_INVALID);
+        }
+
+      } else {
+        System.out.println(View.INPUT_INVALID);
+      }
+    }
+
   }
 }

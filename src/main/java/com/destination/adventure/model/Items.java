@@ -1,9 +1,10 @@
 package com.destination.adventure.model;
 
 public class Items {
+
   String name;
   String description;
-  String country;
+
 
   public String getName() {
     return name;
@@ -21,11 +22,4 @@ public class Items {
     this.description = description;
   }
 
-  public String getCountry() {
-    return country;
-  }
-
-  public void setCountry(String country) {
-    this.country = country;
-  }
 }
