@@ -1,8 +1,13 @@
 package com.destination.adventure.model;
 
+import com.destination.adventure.controller.InputHandler;
+import com.destination.adventure.controller.TextParser;
 import com.destination.adventure.view.View;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import org.json.simple.parser.ParseException;
 
 public class Game {
 
@@ -11,160 +16,140 @@ public class Game {
   private TextParser input = new TextParser();
   private Player player = new Player();
   private View view = new View();
+  private InputHandler handler = new InputHandler();
+  private Destination dest = new Destination();
+  private World worldClass = new World();
 
-  public Game(State state) {
-    populateDestination();
+
+  public Game(State state) throws IOException {
+//    populateDestination();
     this.state = state;
   }
 
   //Display title
   public void startGame() {
-    System.out.println(view.getTITLE());
+    System.out.println(View.TITLE);
   }
 
   // Prompt user for name and Welcome message.
   public Player playerSetUp() {
-    System.out.println("\nHmm, you look new around here...\n"
-        + "What is your name?");
-    String[] command = TextParser.readUserInput();
-    System.out.printf("\nWelcome to Destination Adventure, %s! I am your tour guide, Skip!%n",
-        command[0]);
+    String[] command = handler.setUp();
     player.setName(command[0]);
     return player;
   }
 
   //  Display game objective
   public void objective() {
-    System.out.println(view.getOBJECTIVE());
+    System.out.println(View.OBJECTIVE);
   }
 
-
-  // use .equals() to compare strings for equality
-  public boolean playOrNot() {
-    while (true) {
-      System.out.println("\nWould you like to play? Type yes or no.");
-      String[] answer = processInput();
-
-      if (answer[0].equals("yes")) {
-        return true;
-      } else if (answer[0].equals("no")) {
-        return false;
-      } else {
-        System.out.println("Please enter either yes or no.");
-      }
-    }
-  }
-
-
-  //  Player begin the game and the current location is Seattle.
   public void playGame() {
-    System.out.println(
-        "You have landed in Seattle, what would you like to do next? --- Type help at any time.");
+    System.out.println(View.STARTING_LOCATION);
+    goToBank(player);
 
-//    Gives player different destination they can go.
     while (true) {
-      System.out.println("Where would you like to go? Here are the list of destination: ");
-      for (Destination d : destinations) {
-        System.out.println(d.getCountry());
-      }
-      String[] input = processInput();
+      // give user destination options
+      System.out.println(View.DESTINATION);
+      // grab user input
+      String[] input = handler.processInput(player);
 
-// Cheking if the user inputs verb and noun to navigate to different location
+      // validate input
       if (input.length < 2) {
-        System.out.println(
-            "Input Invalid. Type verb and noun. For example if you want to go to Nepal, type 'go Nepal' ");
+        System.out.println(View.INVALID);
         continue;
       }
-//  Setting variables
+
       String countryName = input[1];
-      boolean validCountry = false;
-      Destination destination = null;
-
-//      Checking if the country is valid for each destination
-      for (Destination d : destinations) {
-        if (d.getCountry().equalsIgnoreCase(countryName)) {
-          validCountry = true;
-          destination = d;
-        }
-      }
-
-//  If the user inputs invalid country
-      if (!validCountry) {
-        System.out.println("Country Name Invalid. Please try again");
-        continue;
-      }
-      System.out.println("Great!! We are going to " + countryName);
-      player.setCurrentLocation(destination);
-      break;
+      // Introduce player to location
+      System.out.println(worldClass.world.get(countryName).getDescription());
+      // Provide player with tips to get the jewel at that location
+      System.out.println(worldClass.guidePrompts.get(countryName).getInstructions());
+      goTOAirport(countryName);
     }
 
-    while (true) {
-      System.out.printf("Welcome to %s. ", player.getCurrentLocation().getCountry());
-      System.out.printf("The jewel is in %s. ", player.getCurrentLocation().getPlace());
-      System.out.println(
-          "What do you want to do next? In the airport store, you have the following options.");
-
-      for (String option : player.getCurrentLocation().getOptions()) {
-        System.out.println(option);
-      }
-      System.out.println("Type 'buy' followed by the item you want to buy. ");
-      String[] input = processInput();
-      if (input.length < 2) {
-        System.out.println("Input Invalid! Type 'buy' followed by the item you want to buy.");
-        continue;
-      }
-      String option = input[1];
-      boolean validOption = false;
-
-      for (String o : player.getCurrentLocation().getOptions()) {
-        if (option.equalsIgnoreCase(o)) {
-          validOption = true;
-          break;
-        }
-      }
-
-      if (!validOption) {
-        System.out.println(
-            "Input Invalid. Selected option is not available in this store. Type 'buy' followed by the item you want to buy.");
-        continue;
-      }
-      System.out.printf("Great, you are in %s and you have %s in your possession",
-          player.getCurrentLocation().getPlace(), option);
-      break;
-    }
 
   }
 
-  //processInput method to check the users input.
-  private String[] processInput() {
-    String[] input = TextParser.readUserInput();
-    checkInput(input);
-    return input;
-  }
-
-
-  public String[] nextInput () {
-    // TODO: Edit to take in player's current location
-    System.out.printf("You are in %s, what would you like to do next? --- Type help at any time.", player.getCurrentLocation());
-    return input.readUserInput();
-  };
-
-  // put at top of while loop so user input is constantly checking against these commands
-  public void checkInput(String[] text) {
-    if (text[0].equalsIgnoreCase("quit")) {
-      System.out.println("Quitting the game!!");
-      System.exit(0);
-    }
-    else if (text[0].equalsIgnoreCase("help")) {
-      System.out.println(view.getHELP());
-    }
-    else if (text[0].equalsIgnoreCase("status")) {
-      System.out.println("Here is your current status:\n");
-      System.out.println("Location: " + player.getCurrentLocation().getCountry());
-      System.out.println("Wallet $" + player.getWallet());
-      System.out.println("Inventory: " + player.getInventory());
-    }
-  }
+//    Player begin the game and the current location is Seattle.
+//  public void playGame() throws IOException, ParseException {
+//    System.out.println(
+//        View.STARTING_LOCATION);
+//    // player gets the opportunity to visit the bank before embarking on first destination
+//    goToBank(player);
+//
+////  Gives player different destination they can go.
+//    while (true) {
+//      System.out.println(View.DESTINATION);
+//      for (Destination d : destinations) {
+//        System.out.println(d.getCountry());
+//      }
+//      String[] input = handler.processInput(player);
+//
+//// Checking if the user inputs verb and noun to navigate to different location
+//      if (input.length < 2) {
+//        System.out.println(
+//            View.INVALID);
+//        continue;
+//      }
+////  Setting variables
+//      String countryName = input[1];
+//      boolean validCountry = false;
+//      Destination destination = null;
+//
+////      Checking if the country is valid for each destination
+//      for (Destination d : destinations) {
+//        if (d.getCountry().equalsIgnoreCase(countryName)) {
+//          validCountry = true;
+//          destination = d;
+//        }
+//      }
+//
+////  If the user inputs invalid country
+//      if (!validCountry) {
+//        System.out.println(View.INVALID_COUNTRY);
+//        continue;
+//      }
+//      System.out.println(View.VALID_COUNTRY + countryName);
+//      player.setCurrentLocation(destination);
+//      break;
+//    }
+//
+//    while (true) {
+//      System.out.println(worldClass.world.get("nepal").getDescription());
+//      System.out.printf("Welcome to %s. ", player.getCurrentLocation().getCountry());
+//      System.out.printf("The jewel is in %s. ", player.getCurrentLocation().getPlace());
+//      System.out.println(View.AIRPORT);
+//
+//      for (String option : player.getCurrentLocation().getOptions()) {
+//        System.out.println(option);
+//      }
+//      System.out.println(View.BUY);
+//      String[] input = handler.processInput(player);
+//      if (input.length < 2) {
+//        System.out.println(View.INVALID_BUY);
+//        continue;
+//      }
+//      String option = input[1];
+//      boolean validOption = false;
+//
+//      for (String o : player.getCurrentLocation().getOptions()) {
+//        if (option.equalsIgnoreCase(o)) {
+//          validOption = true;
+//          break;
+//        }
+//      }
+//
+//      if (!validOption) {
+//        System.out.println(View.INVALID_SELECTION);
+//        continue;
+//      }
+//      player.getInventory().add(option);
+//      System.out.printf(View.VALID_SELECTION, player.getCurrentLocation().getPlace(), option);
+//      input = handler.processInput(player);
+//
+//    }
+//
+//  }
 
   public State getState() {
     return state;
@@ -240,6 +225,69 @@ public class Game {
     destinations.add(australia);
     destinations.add(africa);
     destinations.add(ecuador);
+
+  }
+
+  // SEATTLE HARD CODING
+  // bank method
+  public void goToBank(Player player) {
+
+    // prompt the user if they would like to visit the bank
+    System.out.printf(View.START_ADVENTURE, player.getName());
+
+    // while loop
+    while (true) {
+      // give the user two options: rob the bank or check bank account
+      System.out.println(View.BANK_OPTIONS);
+      String[] response = handler.processInput(player);
+
+      // if user input is rob bank, rob the bank
+      if (response[0].equalsIgnoreCase("rob")) {
+        System.out.println(View.ROB_OPTION);
+
+        // adjust wallet to include $10000
+        player.setWallet(10000);
+        break;
+        // else if user input is check bank account
+      } else if (response[0].equalsIgnoreCase("check")) {
+        System.out.println(View.CHECK_BANK_ACCOUNT);
+        // give the user $600
+        player.setWallet(600);
+        break;
+      } else if (response[0].equalsIgnoreCase("no")) {
+        System.out.println(View.NO_BANK);
+        break;
+      } else {
+        // else invalid input, try again
+        System.out.println(View.INPUT_INVALID);
+      }
+    }
+  }
+
+  public void goTOAirport(String location) {
+    System.out.println(View.AIRPORT);
+    System.out.println(Arrays.toString(worldClass.world.get(location).getStore()));
+
+
+    while (true) {
+      String[] response = handler.processInput(player);
+      if (response[0].equalsIgnoreCase("buy")) {
+        if (worldClass.items.stream().anyMatch(x -> x.getName().equalsIgnoreCase(response[1]))) {
+          player.getInventory().add(response[1]);
+          player.setWallet(player.getWallet() - 500);
+          break;
+        }
+      } else if (response[0].equalsIgnoreCase("look")) {
+        if (worldClass.items.stream().anyMatch(x -> x.getName().equalsIgnoreCase(response[1]))) {
+          System.out.println(worldClass.itemsAirport.get(response[1]).getDescription());
+        }else{
+          System.out.println(View.INPUT_INVALID);
+        }
+
+      } else {
+        System.out.println(View.INPUT_INVALID);
+      }
+    }
 
   }
 }

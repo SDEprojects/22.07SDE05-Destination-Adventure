@@ -1,0 +1,50 @@
+[
+  {
+    "name":"catnip",
+    "description": "a tasty treat for cats"
+  },
+  {
+    "name": "cattoy",
+    "description": "a shiny squeaky mouse toy"
+  },
+  {
+    "name": "kangerootreats",
+    "description": "tasty treats that kangeroos seem to enjoy"
+  },
+  {
+    "name": "scubagear",
+    "description": "scuba diving gear for the ocean"
+  },
+  {
+    "name": "safepads",
+    "description": "a set of elbow and knee pads to protect you from collision"
+  },
+  {
+    "name": "strawhat",
+    "description": "a fine straw hat to shade your face from the sun"
+  },
+  {
+    "name": "repelgear",
+    "description": "gear for repelling down cliffs and stuff"
+  },
+  {
+    "name": "cuybook",
+    "description": "Learn everythig about the South American dish, Cuy (aka Guinea Pig)!"
+  },
+  {
+    "name": "hikingkit",
+    "description": "This will help facilitate you to climb tough hikes on the island."
+  },
+  {
+    "name": "fakearmyuniform",
+    "description": "This might help you get inside the base."
+  },
+  {
+    "name": "airplane",
+    "description": "The plane can not land on the mountain. You have to find a way to get off the plane."
+  },
+  {
+    "name": "snowmobile",
+    "description": "You will ride the snowmobile to the top."
+  }
+]
