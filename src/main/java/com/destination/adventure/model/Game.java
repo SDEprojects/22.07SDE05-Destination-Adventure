@@ -17,10 +17,11 @@ public class Game {
   private View view = new View();
   private InputHandler handler = new InputHandler();
   private Destination dest = new Destination();
+  private World worldClass = new World();
 
 
-  public Game(State state) {
-    populateDestination();
+  public Game(State state) throws IOException {
+//    populateDestination();
     this.state = state;
   }
 
@@ -41,86 +42,108 @@ public class Game {
     System.out.println(View.OBJECTIVE);
   }
 
-//    Player begin the game and the current location is Seattle.
-  public void playGame() throws IOException, ParseException {
-    System.out.println(
-        View.STARTING_LOCATION);
-    // player gets the opportunity to visit the bank before embarking on first destination
+  public void playGame() {
+    System.out.println(View.STARTING_LOCATION);
     goToBank(player);
 
-//  Gives player different destination they can go.
-    while (true) {
+    while(true) {
+      // give user destination options
       System.out.println(View.DESTINATION);
-      for (Destination d : destinations) {
-        System.out.println(d.getCountry());
-      }
+      // grab user input
       String[] input = handler.processInput(player);
 
-// Checking if the user inputs verb and noun to navigate to different location
+      // validate input
       if (input.length < 2) {
-        System.out.println(
-            View.INVALID);
+        System.out.println(View.INVALID);
         continue;
       }
-//  Setting variables
+
       String countryName = input[1];
-      boolean validCountry = false;
-      Destination destination = null;
 
-//      Checking if the country is valid for each destination
-      for (Destination d : destinations) {
-        if (d.getCountry().equalsIgnoreCase(countryName)) {
-          validCountry = true;
-          destination = d;
-        }
-      }
-
-//  If the user inputs invalid country
-      if (!validCountry) {
-        System.out.println(View.INVALID_COUNTRY);
-        continue;
-      }
-      System.out.println(View.VALID_COUNTRY + countryName);
-      player.setCurrentLocation(destination);
-      break;
+      System.out.println(worldClass.world.get(countryName).getDescription());
     }
-
-    while (true) {
-      dest.getDescription("italy");
-      System.out.printf("Welcome to %s. ", player.getCurrentLocation().getCountry());
-      System.out.printf("The jewel is in %s. ", player.getCurrentLocation().getPlace());
-      System.out.println(View.AIRPORT);
-
-      for (String option : player.getCurrentLocation().getOptions()) {
-        System.out.println(option);
-      }
-      System.out.println(View.BUY);
-      String[] input = handler.processInput(player);
-      if (input.length < 2) {
-        System.out.println(View.INVALID_BUY);
-        continue;
-      }
-      String option = input[1];
-      boolean validOption = false;
-
-      for (String o : player.getCurrentLocation().getOptions()) {
-        if (option.equalsIgnoreCase(o)) {
-          validOption = true;
-          break;
-        }
-      }
-
-      if (!validOption) {
-        System.out.println(View.INVALID_SELECTION);
-        continue;
-      }
-      player.getInventory().add(option);
-      System.out.printf(View.VALID_SELECTION, player.getCurrentLocation().getPlace(), option);
-      input = handler.processInput(player);
-
-    }
-
   }
+
+//    Player begin the game and the current location is Seattle.
+//  public void playGame() throws IOException, ParseException {
+//    System.out.println(
+//        View.STARTING_LOCATION);
+//    // player gets the opportunity to visit the bank before embarking on first destination
+//    goToBank(player);
+//
+////  Gives player different destination they can go.
+//    while (true) {
+//      System.out.println(View.DESTINATION);
+//      for (Destination d : destinations) {
+//        System.out.println(d.getCountry());
+//      }
+//      String[] input = handler.processInput(player);
+//
+//// Checking if the user inputs verb and noun to navigate to different location
+//      if (input.length < 2) {
+//        System.out.println(
+//            View.INVALID);
+//        continue;
+//      }
+////  Setting variables
+//      String countryName = input[1];
+//      boolean validCountry = false;
+//      Destination destination = null;
+//
+////      Checking if the country is valid for each destination
+//      for (Destination d : destinations) {
+//        if (d.getCountry().equalsIgnoreCase(countryName)) {
+//          validCountry = true;
+//          destination = d;
+//        }
+//      }
+//
+////  If the user inputs invalid country
+//      if (!validCountry) {
+//        System.out.println(View.INVALID_COUNTRY);
+//        continue;
+//      }
+//      System.out.println(View.VALID_COUNTRY + countryName);
+//      player.setCurrentLocation(destination);
+//      break;
+//    }
+//
+//    while (true) {
+//      System.out.println(worldClass.world.get("nepal").getDescription());
+//      System.out.printf("Welcome to %s. ", player.getCurrentLocation().getCountry());
+//      System.out.printf("The jewel is in %s. ", player.getCurrentLocation().getPlace());
+//      System.out.println(View.AIRPORT);
+//
+//      for (String option : player.getCurrentLocation().getOptions()) {
+//        System.out.println(option);
+//      }
+//      System.out.println(View.BUY);
+//      String[] input = handler.processInput(player);
+//      if (input.length < 2) {
+//        System.out.println(View.INVALID_BUY);
+//        continue;
+//      }
+//      String option = input[1];
+//      boolean validOption = false;
+//
+//      for (String o : player.getCurrentLocation().getOptions()) {
+//        if (option.equalsIgnoreCase(o)) {
+//          validOption = true;
+//          break;
+//        }
+//      }
+//
+//      if (!validOption) {
+//        System.out.println(View.INVALID_SELECTION);
+//        continue;
+//      }
+//      player.getInventory().add(option);
+//      System.out.printf(View.VALID_SELECTION, player.getCurrentLocation().getPlace(), option);
+//      input = handler.processInput(player);
+//
+//    }
+//
+//  }
 
   public State getState() {
     return state;

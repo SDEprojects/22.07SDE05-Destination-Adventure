@@ -4,6 +4,9 @@ import com.destination.adventure.model.Game;
 import com.destination.adventure.model.Player;
 import com.destination.adventure.model.State;
 import com.destination.adventure.view.View;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class InputHandler {
 
@@ -65,6 +68,19 @@ public class InputHandler {
     else if (text[0].equalsIgnoreCase("inventory")){
       System.out.println(View.INVENTORY);
       System.out.println(player.getInventory());
+    }
+    else if (text[0].equalsIgnoreCase("go")) {
+      List<String> countries = Arrays.asList(View.COUNTRIES);
+      while(true) {
+        if (countries.contains(text[1])) {
+          System.out.printf("Taking you to: %s!", text[1]);
+          break;
+        } else {
+          System.out.println(View.INVALID_COUNTRY);
+          processInput(player);
+        }
+      }
+
     }
   }
 
