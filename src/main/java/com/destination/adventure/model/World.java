@@ -16,13 +16,17 @@ public class World {
   // Fields
   private List<Locations> locations;
   private List<Items> items;
+  private List<Guide> guide;
   HashMap<String, Locations> world;
+  HashMap<String, Guide> guidePrompts;
 
   public World() throws IOException {
     Gson gson = new Gson();
     locations = load("destinations2.json", gson, new TypeToken<ArrayList<Locations>>(){}.getType());
+    guide = load("dialogue.json", gson, new TypeToken<ArrayList<Guide>>(){}.getType());
 
     world = (HashMap<String, Locations>) locations.stream().collect(Collectors.toMap(Locations::getName, location -> location));
+    guidePrompts = (HashMap<String, Guide>) guide.stream().collect(Collectors.toMap(Guide::getCountry, prompt -> prompt));
 //    System.out.println(world.get("italy").getDescription());
   }
 
@@ -30,6 +34,7 @@ public class World {
 //    World world = new World();
 //
 //    System.out.println(world.world.get("italy").getDescription());
+//    System.out.println(world.guidePrompts.get("italy").getInstructions());
 //
 //  }
 

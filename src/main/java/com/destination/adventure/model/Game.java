@@ -59,8 +59,10 @@ public class Game {
       }
 
       String countryName = input[1];
-
+      // Introduce player to location
       System.out.println(worldClass.world.get(countryName).getDescription());
+      // Provide player with tips to get the jewel at that location
+      System.out.println(worldClass.guidePrompts.get(countryName).getInstructions());
     }
   }
 
