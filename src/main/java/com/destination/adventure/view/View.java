@@ -89,7 +89,7 @@ public class View {
 
   public static final String VALID_SELECTION = "Great, you are in %s and you have %s in your possession. What would you like to do next?";
 
-  public static final String INVENTORY = "The following is the list of items you have in your possession. ";
+  public static final String INVENTORY = "The following is the list of items.json you have in your possession. ";
 
   public static final String[] COUNTRIES = {"italy", "ecuador", "australia", "zambia", "hawaii", "nepal", "antarctica"};
 }
