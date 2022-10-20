@@ -4,42 +4,42 @@
     "description" : "You arrive at the airport in Italy. You take a second to admire your surroundings. Your phone rings/ your guide turns to you.",
     "store" : ["catnip", "cat toy"],
     "jewel": true,
-    "options" : ["store", "colosseum", "teleport"]
+    "options" : ["colosseum", "teleport"]
   },
   {
     "name": "ecuador",
     "description" : "You arrive at the airport in Ecuador. You smell fresh {Ecuadorian Food} coming from a nearby restaurant. Your phone rings/ your guide turns to you.",
     "store" : ["repel gear", "Cuy book"],
     "jewel": true,
-    "options" : ["store", "tourBus", "skyDive", "teleport"]
+    "options" : ["tourBus", "skyDive", "teleport"]
   },
   {
     "name" : "australia",
     "description" : "You arrive at the airport in Australia. You take a second to admire your surroundings. Your phone rings/ your guide turns to you.",
     "store" : ["kangaroo treats", "scuba gear"],
     "jewel": true,
-    "options" : ["store", "scuba", "safari", "teleport"]
+    "options" : ["scuba", "safari", "teleport"]
   },
   {
     "name": "zambia",
     "description" : "You arrive at the Harry Mwanga Nkumbula airport in Zambia. You look around, taking in the scenery and people. Your phone rings/ your guide turns to you.",
     "store" : ["safepads", "straw hat"],
     "jewel": true,
-    "options" : ["store", "car", "tourBus", "teleport"]
+    "options" : ["car", "tourBus", "teleport"]
   },
   {
     "name": "hawaii",
     "description" : "Aloha, you have arrived at one of the beautiful islands in the Pacific. You are on the island of Oahu. Please enjoy the beautiful beaches all around the island. Mahalo!!!",
     "store" : ["hiking kit", "fake army uniform"],
     "jewel": true,
-    "options" : ["store", "base", "stairway", "teleport"]
+    "options" : ["base", "stairway", "teleport"]
   },
   {
     "name": "nepal",
     "description" : "Namaste, Welcome to the land of Gurkha. You are in one of the beautiful countries of South Asia. It contains eight of the ten world’s tallest mountains. The world tallest mountain Mt. Everest is also located in Nepal. Enjoy the culture here natural beauty and food. ",
     "store" : ["airplane", "snow mobile"],
     "jewel": true,
-    "options" : ["store", "plane", "snowmobile", "teleport"]
+    "options" : ["plane", "snowmobile", "teleport"]
   },
 
   {

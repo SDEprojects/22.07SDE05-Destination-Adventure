@@ -22,6 +22,14 @@ public class View {
       + "██║░░██║██████╔╝░░╚██╔╝░░███████╗██║░╚███║░░░██║░░░╚██████╔╝██║░░██║███████╗\n"
       + "╚═╝░░╚═╝╚═════╝░░░░╚═╝░░░╚══════╝╚═╝░░╚══╝░░░╚═╝░░░░╚═════╝░╚═╝░░╚═╝╚══════╝";
 
+
+  public static final String LOSE = "\n"
+      + "██╗░░░██╗░█████╗░██╗░░░██╗  ██╗░░░░░░█████╗░░██████╗███████╗██╗\n"
+      + "╚██╗░██╔╝██╔══██╗██║░░░██║  ██║░░░░░██╔══██╗██╔════╝██╔════╝██║\n"
+      + "░╚████╔╝░██║░░██║██║░░░██║  ██║░░░░░██║░░██║╚█████╗░█████╗░░██║\n"
+      + "░░╚██╔╝░░██║░░██║██║░░░██║  ██║░░░░░██║░░██║░╚═══██╗██╔══╝░░╚═╝\n"
+      + "░░░██║░░░╚█████╔╝╚██████╔╝  ███████╗╚█████╔╝██████╔╝███████╗██╗\n"
+      + "░░░╚═╝░░░░╚════╝░░╚═════╝░  ╚══════╝░╚════╝░╚═════╝░╚══════╝╚═╝";
   public static final String OBJECTIVE =
       "\nThere is a treasure to be found in this world, one that will take away all your worries.\n"
           + "In order to find it, you must travel to various destinations around the world to find the jewels that will lead you there.\n"
@@ -91,7 +99,6 @@ public class View {
 
   public static final String INVENTORY = "The following is the list of items.json you have in your possession. ";
 
-  public static final String[] COUNTRIES = {"italy", "ecuador", "australia", "zambia", "hawaii", "nepal", "antarctica"};
 }
 
 
