@@ -1,13 +1,5 @@
 package com.destination.adventure.model;
 
-import com.destination.adventure.controller.InputHandler;
-import com.destination.adventure.view.View;
-import com.google.gson.Gson;
-import com.google.gson.annotations.SerializedName;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.Reader;
-import java.lang.reflect.Type;
 
 
 
