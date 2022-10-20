@@ -10,7 +10,7 @@ import java.util.List;
 public class Game {
 
   private State state;
-  private TextParser input = new TextParser();
+//  private TextParser input = new TextParser();
   private Player player = new Player();
   private View view = new View();
   private InputHandler handler = new InputHandler();
@@ -138,23 +138,25 @@ public class Game {
         System.out.println(View.INPUT_INVALID);
       }
     }
-
   }
 
 
   public Boolean beginScenario(String country, Player player) {
-    String[] input = handler.processInput(player);
-    List<String> list = Arrays.asList(worldClass.world.get(country).getOptions());
 
-    if (list.get(0).equalsIgnoreCase(input[1])) {
-      System.out.println(worldClass.guidePrompts.get(country).getJewel());
-      return true;
-    } else if (list.get(1).equalsIgnoreCase(input[1])) {
-      System.out.println(worldClass.guidePrompts.get(country).getLose());
-      System.out.println(View.LOSE);
-      return false;
-    } else {
-      return null;
+    while(true) {
+      String[] input = handler.nextInput();
+      List<String> list = Arrays.asList(worldClass.world.get(country).getOptions());
+      if (input.length < 2) {
+        handler.checkInput(input, player);
+      }
+      else if (list.get(0).equalsIgnoreCase(input[1])) {
+        System.out.println(worldClass.guidePrompts.get(country).getJewel());
+        return true;
+      } else if (list.get(1).equalsIgnoreCase(input[1])) {
+        System.out.println(worldClass.guidePrompts.get(country).getLose());
+        System.out.println(View.LOSE);
+        return false;
+      }
     }
   }
 

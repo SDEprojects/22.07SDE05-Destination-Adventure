@@ -89,7 +89,5 @@ public class InputHandler {
       System.out.println(View.INVENTORY);
       System.out.println(player.getInventory());
     }
-
   }
-
 }
