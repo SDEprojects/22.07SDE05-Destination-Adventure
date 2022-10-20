@@ -2,6 +2,7 @@ package com.destination.adventure.model;
 
 import com.destination.adventure.controller.InputHandler;
 import com.destination.adventure.controller.TextParser;
+import com.destination.adventure.view.PlayMusic;
 import com.destination.adventure.view.View;
 import java.io.IOException;
 import java.util.Arrays;
@@ -26,7 +27,10 @@ public class Game {
   //Display title
   public void startGame() {
     System.out.println(View.TITLE);
+    PlayMusic.RunMusic("music.wav");
   }
+
+
 
   // Prompt user for name and Welcome message.
   public Player playerSetUp() {
@@ -158,6 +162,8 @@ public class Game {
         return false;
       }
     }
+
+
   }
 
   public State getState() {

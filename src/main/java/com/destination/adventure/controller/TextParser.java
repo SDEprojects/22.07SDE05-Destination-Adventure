@@ -15,14 +15,4 @@ public class TextParser {
     command = userCommand.replaceAll("[^\\w\\s]", "").split("\\s+");
     return command;
   }
-
-//  Testing parser function
-//  public static void main(String[] args) {
-//    TextParser test = new TextParser();
-//    String[] other = test.readUserInput();
-//    for (String word:other) {
-//      System.out.println(word);
-//    }
-//    System.out.println(other[0]);
-//  }
 }
