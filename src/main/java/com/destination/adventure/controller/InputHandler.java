@@ -31,7 +31,7 @@ public class InputHandler {
   public boolean playOrNot() {
     while (true) {
       System.out.println(View.DECISION);
-      String[] answer = nextInput();
+      String[] answer = input.readUserInput();
 
       if (answer[0].equals("yes")) {
         return true;
