@@ -8,7 +8,11 @@ public class Player {
   private String name;
   private List<String> inventory = new ArrayList<>();
   private int wallet = 0;
-  private Destination currentLocation = new Destination("North America", "USA", "Seattle", null);
+
+  private String currentLocation;
+
+
+
 
   public Player() {
   }
@@ -18,6 +22,13 @@ public class Player {
   }
 
 
+  public String getCurrentLocation() {
+    return currentLocation;
+  }
+
+  public void setCurrentLocation(String currentLocation) {
+    this.currentLocation = currentLocation;
+  }
   public String getName() {
     return name;
   }
@@ -42,13 +53,6 @@ public class Player {
     this.wallet = wallet;
   }
 
-  public Destination getCurrentLocation() {
-    return currentLocation;
-  }
-
-  public void setCurrentLocation(Destination currentLocation) {
-    this.currentLocation = currentLocation;
-  }
 
   @Override
   public String toString() {

@@ -3,7 +3,9 @@ package com.destination.adventure.controller;
 import com.destination.adventure.model.Game;
 import com.destination.adventure.model.Player;
 import com.destination.adventure.model.State;
+import com.destination.adventure.model.World;
 import com.destination.adventure.view.View;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -11,7 +13,11 @@ import java.util.List;
 public class InputHandler {
 
   private TextParser input = new TextParser();
-  private static View view = new View();
+
+  World worldClass = new World();
+
+  public InputHandler() throws IOException {
+  }
 
 
   public String[] setUp() {
@@ -40,9 +46,11 @@ public class InputHandler {
   public String[] processInput(Player player) {
     String[] command = input.readUserInput();
     if (command[0].equalsIgnoreCase("go")) {
-      List<String> countries = Arrays.asList(View.COUNTRIES);
+//      List<String> countries = Arrays.asList(View.COUNTRIES);
       while (true) {
-        if (!countries.contains(command[1])) {
+        String[] finalCommand = command;
+        if (worldClass.locations.stream()
+            .noneMatch(x -> x.getName().equalsIgnoreCase(finalCommand[1]))) {
           System.out.println(View.INVALID_COUNTRY);
           command = processInput(player);
         } else {
@@ -74,26 +82,14 @@ public class InputHandler {
       System.out.println(View.HELP);
     } else if (text[0].equalsIgnoreCase("status")) {
       System.out.println("Here is your current status:\n");
-      System.out.println("Location: " + player.getCurrentLocation().getCountry());
+      System.out.println("Location: " + player.getCurrentLocation());
       System.out.println("Wallet $" + player.getWallet());
       System.out.println("Inventory: " + player.getInventory());
     } else if (text[0].equalsIgnoreCase("inventory")) {
       System.out.println(View.INVENTORY);
       System.out.println(player.getInventory());
     }
-//    else if (text[0].equalsIgnoreCase("go")) {
-//        List<String> countries = Arrays.asList(View.COUNTRIES);
-//        while(true) {
-//          if (countries.contains(text[1])) {
-//            System.out.printf("Taking you to: %s!", text[1]);
-//            break;
-//          } else {
-//            System.out.println(View.INVALID_COUNTRY);
-//            processInput(player);
-//          }
-//        }
-//
-//    }
+
   }
 
 }

@@ -8,7 +8,7 @@
   },
   {
     "country":"australia",
-    "instructions": "To find this jewel, you will most certainly check a box off of your bucket list.",
+    "instructions": "To find this jewel, you will most certainly check a box off of your bucket list. You can go to the Kangaroo Sanctuary[explore sanctuary] or you can go scuba diving[explore reef] at the Great Barrier Reef. What would you like to do?",
     "jewel" : "You reach the kangaroo sanctuary and you spot Kangaroo Jill. You pull out the kangaroo treats and begin to lure Kangaroo Jill closer. Once she starts eating the treats from your hand, you notice the jewel in her kangaroo pouch. You sneakily take the jewel from Kangaroo Jill as she finishes eating the treats. ",
     "lose" : "You reach the Great Barrier Reef and equip your scuba gear. You plunge into the water and begin to descend. As you approach the coral reef, you notice a school of Box jellyfish surrounding you. You can’t get away from them and one stings you. The pain is intolerable and you cannot continue... "
   },

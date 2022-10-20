@@ -14,7 +14,7 @@ import java.util.stream.Collectors;
 public class World {
 
   // Fields
-  private List<Locations> locations;
+  public List<Locations> locations;
    List<Items> items;
   private List<Guide> guide;
   HashMap<String, Locations> world;
