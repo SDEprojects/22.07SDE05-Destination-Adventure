@@ -31,7 +31,7 @@ public class InputHandler {
   public boolean playOrNot() {
     while (true) {
       System.out.println(View.DECISION);
-      String[] answer = nextInput();
+      String[] answer = input.readUserInput();
 
       if (answer[0].equals("yes")) {
         return true;
@@ -67,7 +67,7 @@ public class InputHandler {
 
   public String[] nextInput() {
     // TODO: Edit to take in player's current location
-    System.out.println("What would you like to do?");
+    System.out.println(" What would you like to do?");
     return input.readUserInput();
   }
 
