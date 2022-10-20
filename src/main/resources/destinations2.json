@@ -8,7 +8,7 @@
   },
   {
     "name": "ecuador",
-    "description" : "You arrive at the airport in Ecuador. You smell fresh {Ecuadorian Food} coming from a nearby restaurant.",
+    "description" : "You arrive at the airport in Ecuador. You smell fresh Ecuadorian food coming from a nearby restaurant.",
     "store" : ["RepelGear", "CuyBook"],
     "jewel": true,
     "options" : ["tourBus", "skyDive", "teleport"]
@@ -18,7 +18,7 @@
     "description" : "You arrive at the airport in Australia. You take a second to admire your surroundings.",
     "store" : ["Treats", "ScubaGear"],
     "jewel": true,
-    "options" : ["safari", "scuba","teleport"]
+    "options" : ["sanctuary", "scuba","teleport"]
   },
   {
     "name": "zambia",
