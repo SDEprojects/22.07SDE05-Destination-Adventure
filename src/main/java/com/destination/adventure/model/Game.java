@@ -1,7 +1,6 @@
 package com.destination.adventure.model;
 
 import com.destination.adventure.controller.InputHandler;
-import com.destination.adventure.controller.TextParser;
 import com.destination.adventure.view.View;
 import java.io.IOException;
 import java.util.Arrays;
@@ -12,7 +11,7 @@ public class Game {
   private State state;
   //  private TextParser input = new TextParser();
   private Player player = new Player();
-  private View view = new View();
+//  private View view = new View();
   private InputHandler handler = new InputHandler();
   private World worldClass = new World();
 
@@ -58,11 +57,11 @@ public class Game {
       String countryName = input[1];
       player.setCurrentLocation(countryName);
       // Introduce player to location
-      System.out.println(worldClass.world.get(countryName).getDescription());
-      goTOAirport(countryName);
+      System.out.println("\n " + worldClass.world.get(countryName).getDescription());
+      goToAirport(countryName);
 
       // Provide player with tips to get the jewel at that location
-      System.out.println(worldClass.guidePrompts.get(countryName).getInstructions());
+      System.out.println("\n " + worldClass.guidePrompts.get(countryName).getInstructions());
       // begin scenario
 
       Boolean result = beginScenario(countryName, player);
@@ -112,9 +111,10 @@ public class Game {
     }
   }
 
-  public void goTOAirport(String location) {
+  public void goToAirport(String location) {
     System.out.println(View.AIRPORT);
-    System.out.println(Arrays.toString(worldClass.world.get(location).getStore()));
+    System.out.println(" " + Arrays.toString(worldClass.world.get(location).getStore()) + "\n");
+    System.out.println(View.AIRPORT_OPTIONS);
 
     while (true) {
       String[] response = handler.processInput(player);
@@ -126,12 +126,12 @@ public class Game {
         }
       } else if (response[0].equalsIgnoreCase("look")) {
         if (worldClass.items.stream().anyMatch(x -> x.getName().equalsIgnoreCase(response[1]))) {
-          System.out.println(worldClass.itemsAirport.get(response[1]).getDescription());
+          System.out.println(" " + worldClass.itemsAirport.get(response[1]).getDescription());
         } else {
           System.out.println(View.INPUT_INVALID);
         }
       } else if (response[0].equalsIgnoreCase("no")) {
-        System.out.println("You have chosen not to buy anything from the store");
+        System.out.println(" You have chosen not to buy anything from the store");
         break;
       } else {
         System.out.println(View.INPUT_INVALID);
@@ -151,13 +151,14 @@ public class Game {
         handler.checkInput(input, player);
       }
 
+
       if (optionList.get(0).equalsIgnoreCase(input[1])) {
         if (player.getInventory().contains(storeList.get(0).toLowerCase())){
-          System.out.println(worldClass.guidePrompts.get(country).getJewel());
+          System.out.println(" " + worldClass.guidePrompts.get(country).getJewel());
           return true;
         }
         else {
-          System.out.println("You chose the wrong item for this adventure");
+          System.out.println(" You chose the wrong item for this adventure");
           System.out.println(View.LOSE);
           return false;
         }

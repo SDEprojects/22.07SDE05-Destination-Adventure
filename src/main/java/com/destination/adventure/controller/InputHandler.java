@@ -67,7 +67,7 @@ public class InputHandler {
 
   public String[] nextInput() {
     // TODO: Edit to take in player's current location
-    System.out.println("What would you like to do?");
+    System.out.println(" What would you like to do?");
     return input.readUserInput();
   }
 
