@@ -51,6 +51,13 @@ public class Game {
     }
 
     while (true) {
+      // check player inventory before each destination round to determine if win game:
+      Boolean jewel = player.checkJewels();
+      if (jewel) {
+        System.out.println(View.WIN);
+        return true;
+      }
+
       // give user destination options
       System.out.println(View.DESTINATION);
       // grab user input

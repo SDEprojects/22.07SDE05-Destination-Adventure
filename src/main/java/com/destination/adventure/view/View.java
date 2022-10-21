@@ -25,14 +25,13 @@ public class View {
   public static final String PLAYER_NAME =
       "\n Hmm, You look new around here...\n" + " What is your name?";
   public static final String WELCOME = "\n Welcome to Destination Adventure, %S! I am your tour guide. Skip!%n";
+  public static final String WIN = "\n"
+      + "  █▄█ █▀█ █░█   █░█░█ █ █▄░█\n"
+      + "  ░█░ █▄█ █▄█   ▀▄▀▄▀ █ █░▀█";
 
   public static final String LOSE = "\n"
-      + "  ██╗░░░██╗░█████╗░██╗░░░██╗  ██╗░░░░░░█████╗░░██████╗███████╗██╗\n"
-      + "  ╚██╗░██╔╝██╔══██╗██║░░░██║  ██║░░░░░██╔══██╗██╔════╝██╔════╝██║\n"
-      + "  ░╚████╔╝░██║░░██║██║░░░██║  ██║░░░░░██║░░██║╚█████╗░█████╗░░██║\n"
-      + "  ░░╚██╔╝░░██║░░██║██║░░░██║  ██║░░░░░██║░░██║░╚═══██╗██╔══╝░░╚═╝\n"
-      + "  ░░░██║░░░╚█████╔╝╚██████╔╝  ███████╗╚█████╔╝██████╔╝███████╗██╗\n"
-      + "  ░░░╚═╝░░░░╚════╝░░╚═════╝░  ╚══════╝░╚════╝░╚═════╝░╚══════╝╚═╝";
+      + "  █▄█ █▀█ █░█   █░░ █▀█ █▀ █▀▀\n"
+      + "  ░█░ █▄█ █▄█   █▄▄ █▄█ ▄█ ██▄";
   public static final String OBJECTIVE =
       "\n There is a treasure to be found in this world, one that will take away all your worries.\n"
           + " In order to find it, you must travel to various destinations around the world to find the jewels that will lead you there.\n"

@@ -2,6 +2,7 @@ package com.destination.adventure.model;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Player {
 
@@ -9,8 +10,8 @@ public class Player {
   private List<String> inventory = new ArrayList<>();
   private int wallet = 0;
 
-  private String currentLocation = "seattle";
 
+  private String currentLocation = "seattle";
 
 
 
@@ -21,6 +22,23 @@ public class Player {
     setName(name);
   }
 
+  public Boolean checkJewels() {
+    int jewelCount = 0;
+
+    for (String item : inventory) {
+      if (Objects.equals(item, "jewel")) {
+        jewelCount++;
+      }
+    }
+
+    if (jewelCount < 4) {
+      System.out.printf("\n You have %d jewels in your inventory.\n", jewelCount);
+      return false;
+    } else {
+      System.out.println(" You have 4 jewels! You are now being teleported to the treasure!");
+      return true;
+    }
+  }
 
   public String getCurrentLocation() {
     return currentLocation;

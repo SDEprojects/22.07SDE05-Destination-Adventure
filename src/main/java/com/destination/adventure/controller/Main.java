@@ -29,8 +29,9 @@ public class Main {
     while (!game.getState().gameOver()) {
       if (!game.playGame()) {
         game.setState(State.GAME_OVER);
+      } else {
+        game.setState(State.GAME_OVER);
       }
-//      game.playGame();
 
     }
 
