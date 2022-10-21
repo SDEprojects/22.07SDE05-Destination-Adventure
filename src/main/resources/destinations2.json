@@ -4,7 +4,7 @@
     "description" : "You arrive at the airport in Italy. You take a second to admire your surroundings.",
     "store" : ["CatNip", "CatToy"],
     "jewel": true,
-    "options" : ["colosseum", "teleport"]
+    "options" : ["colosseum", "pompeii", "teleport"]
   },
   {
     "name": "ecuador",

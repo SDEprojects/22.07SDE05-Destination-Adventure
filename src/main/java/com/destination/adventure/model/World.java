@@ -38,15 +38,6 @@ public class World {
         .collect(Collectors.toMap(Items::getName, item -> item));
   }
 
-//  public static void main(String[] args) throws IOException {
-//    World world = new World();
-//    System.out.println(world);
-//
-//    System.out.println(world.world.get("italy").getDescription());
-//    System.out.println(world.guidePrompts.get("italy").getInstructions());
-//    System.out.println(world.itemsAirport.get("catnip").getDescription());
-//}
-
   // GSON Loader
   private <T> T load(String resourceFile, Gson gson, Type type) throws IOException {
     try(Reader reader = new InputStreamReader(getClass().getClassLoader().getResourceAsStream(resourceFile))) {
