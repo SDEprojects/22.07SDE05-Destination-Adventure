@@ -112,6 +112,7 @@ public class Game {
           return true;
         } else {
           System.out.println(" You took your chances and were arrested!");
+          System.out.println(View.BUSTED);
           System.out.println(View.LOSE);
           return false;
         }
@@ -119,8 +120,8 @@ public class Game {
         // else if user input is check bank account
       } else if (response[0].equalsIgnoreCase("check")) {
         System.out.println(View.CHECK_BANK_ACCOUNT);
-        // give the user $600
-        player.setWallet(600);
+        // give the user $2000
+        player.setWallet(2000);
         return true;
       } else if (response[0].equalsIgnoreCase("no")) {
         System.out.println(View.NO_BANK);
@@ -177,6 +178,7 @@ public class Game {
 
       if (input.length < 2) {
         handler.checkInput(input, player);
+        continue;
       }
 
       if (optionList.get(0).equalsIgnoreCase(input[1])) {
