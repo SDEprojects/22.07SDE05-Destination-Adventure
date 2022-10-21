@@ -78,19 +78,18 @@ public class InputHandler {
   // put at top of while loop so user input is constantly checking against these commands
   public void checkInput(String[] text, Player player) {
     if (text[0].equalsIgnoreCase("quit")) {
-      System.out.println("Quitting the game!!");
+      System.out.println(" Quitting the game!!");
       System.exit(0);
     } else if (text[0].equalsIgnoreCase("help")) {
       System.out.println(View.HELP);
     } else if (text[0].equalsIgnoreCase("status")) {
-      System.out.println("Here is your current status:\n");
-      System.out.println("Location: " + player.getCurrentLocation());
-      System.out.println("Wallet $" + player.getWallet());
-      System.out.println("Inventory: " + player.getInventory());
+      System.out.println(" Skip: Here is your current status:\n");
+      System.out.println(" Location: " + player.getCurrentLocation());
+      System.out.println(" Wallet $" + player.getWallet());
+      System.out.println(" Inventory: " + player.getInventory());
     } else if (text[0].equalsIgnoreCase("inventory")) {
       System.out.println(View.INVENTORY);
-      System.out.println(player.getInventory());
-
+      System.out.println(" " + player.getInventory());
     } else if (text[0].equalsIgnoreCase("stop") && text[1].equalsIgnoreCase("music")) {
       PlayMusic.clip.stop();
     } else if (text[0].equalsIgnoreCase("play") && text[1].equalsIgnoreCase("music")) {
