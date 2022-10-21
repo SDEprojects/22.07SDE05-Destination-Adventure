@@ -4,6 +4,7 @@ import com.destination.adventure.model.Game;
 import com.destination.adventure.model.Player;
 import com.destination.adventure.model.State;
 import com.destination.adventure.model.World;
+import com.destination.adventure.view.PlayMusic;
 import com.destination.adventure.view.View;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -17,6 +18,7 @@ public class InputHandler {
   World worldClass = new World();
 
   public InputHandler() throws IOException {
+
   }
 
 
@@ -88,6 +90,11 @@ public class InputHandler {
     } else if (text[0].equalsIgnoreCase("inventory")) {
       System.out.println(View.INVENTORY);
       System.out.println(player.getInventory());
+
+    } else if (text[0].equalsIgnoreCase("stop") && text[1].equalsIgnoreCase("music")) {
+      PlayMusic.clip.stop();
+    } else if (text[0].equalsIgnoreCase("play") && text[1].equalsIgnoreCase("music")) {
+      PlayMusic.clip.start();
     }
   }
 }

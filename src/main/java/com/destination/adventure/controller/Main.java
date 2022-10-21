@@ -18,7 +18,6 @@ public class Main {
 
     Player player = game.playerSetUp();
     game.objective();
-    //game.goToBank();??
 
 
 
@@ -30,7 +29,6 @@ public class Main {
       if (!game.playGame()) {
         game.setState(State.GAME_OVER);
       }
-//      game.playGame();
 
     }
 
