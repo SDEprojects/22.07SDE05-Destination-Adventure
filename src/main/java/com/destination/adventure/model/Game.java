@@ -26,7 +26,7 @@ public class Game {
   //Display title
   public void startGame() {
     System.out.println(View.TITLE);
-    PlayMusic.RunMusic("music.wav");
+//    PlayMusic.RunMusic("music.wav");
   }
 
 
@@ -48,6 +48,13 @@ public class Game {
     goToBank(player);
 
     while (true) {
+      // check player inventory before each destination round to determine if win game:
+      Boolean jewel = player.checkJewels();
+      if (jewel) {
+        System.out.println(View.WIN);
+        return true;
+      }
+
       // give user destination options
       System.out.println(View.DESTINATION);
       // grab user input
