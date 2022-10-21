@@ -5,6 +5,15 @@ public class Items {
   String name;
   String description;
 
+  int price;
+
+  public int getPrice() {
+    return price;
+  }
+
+  public void setPrice(int price) {
+    this.price = price;
+  }
 
   public String getName() {
     return name;
