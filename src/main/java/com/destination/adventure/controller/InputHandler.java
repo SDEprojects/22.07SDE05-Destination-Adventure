@@ -95,6 +95,11 @@ public class InputHandler {
       PlayMusic.clip.stop();
     } else if (text[0].equalsIgnoreCase("play") && text[1].equalsIgnoreCase("music")) {
       PlayMusic.clip.start();
+    } else if (text[0].equalsIgnoreCase("decrease") && text[1].equalsIgnoreCase("volume")) {
+      PlayMusic.decreaseVolume();
+    }
+    else if (text[0].equalsIgnoreCase("increase") && text[1].equalsIgnoreCase("volume")) {
+      PlayMusic.increaseVolume();
     }
   }
 }

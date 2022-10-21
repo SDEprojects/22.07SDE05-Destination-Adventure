@@ -25,8 +25,8 @@ public class Game {
 
   //Display title
   public void startGame() {
+    PlayMusic.RunMusic("music.wav");
     System.out.println(View.TITLE);
-//    PlayMusic.RunMusic("music.wav");
   }
 
 
@@ -105,7 +105,7 @@ public class Game {
 
       // if user input is rob bank, rob the bank
       if (response[0].equalsIgnoreCase("rob")) {
-        if (getRandomNum(1,100) > 50) {
+        if (getRandomNum(1, 100) > 50) {
           System.out.println(View.ROB_OPTION);
           // adjust wallet to include $10000
           player.setWallet(10000);
@@ -153,7 +153,8 @@ public class Game {
         }
       } else if (response[0].equalsIgnoreCase("look")) {
         if (worldClass.items.stream().anyMatch(x -> x.getName().equalsIgnoreCase(response[1]))) {
-          System.out.println(" $" + worldClass.itemsAirport.get(response[1]).getPrice() +", " + worldClass.itemsAirport.get(response[1]).getDescription());
+          System.out.println(" $" + worldClass.itemsAirport.get(response[1]).getPrice() + ", "
+              + worldClass.itemsAirport.get(response[1]).getDescription());
         } else {
           System.out.println(View.INPUT_INVALID);
         }
