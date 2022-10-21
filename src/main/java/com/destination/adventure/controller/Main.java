@@ -18,7 +18,6 @@ public class Main {
 
     Player player = game.playerSetUp();
     game.objective();
-    //game.goToBank();??
 
 
 
