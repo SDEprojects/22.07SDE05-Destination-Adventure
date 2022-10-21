@@ -64,7 +64,7 @@ public class View {
       + " Your wallet increases by $10000.\n";
 
   public static final String CHECK_BANK_ACCOUNT =
-      "\n You ask the teller to check your bank account. You have $5000.\n"
+      "\n You ask the teller to check your bank account. You have $600.\n"
           + " You choose to withdraw all of your money. You hope you have enough to pay for your adventures!\n";
 
   public static final String NO_BANK = "\n You decide not to go to the bank. Let's go to the first destination!\n";

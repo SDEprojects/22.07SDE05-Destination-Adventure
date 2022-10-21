@@ -9,7 +9,7 @@ public class Player {
   private List<String> inventory = new ArrayList<>();
   private int wallet = 0;
 
-  private String currentLocation;
+  private String currentLocation = "seattle";
 
 
 

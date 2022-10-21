@@ -13,7 +13,7 @@ public class Game {
   private State state;
   //  private TextParser input = new TextParser();
   private Player player = new Player();
-//  private View view = new View();
+  //  private View view = new View();
   private InputHandler handler = new InputHandler();
   private World worldClass = new World();
 
@@ -26,9 +26,8 @@ public class Game {
   //Display title
   public void startGame() {
     System.out.println(View.TITLE);
-    PlayMusic.RunMusic("music.wav");
+//    PlayMusic.RunMusic("music.wav");
   }
-
 
 
   // Prompt user for name and Welcome message.
@@ -45,7 +44,11 @@ public class Game {
 
   public Boolean playGame() {
     System.out.println(View.STARTING_LOCATION);
-    goToBank(player);
+    Boolean robOrFail = goToBank(player);
+
+    if (!robOrFail) {
+      return false;
+    }
 
     while (true) {
       // give user destination options
@@ -82,7 +85,7 @@ public class Game {
 
   // SEATTLE HARD CODING
   // bank method
-  public void goToBank(Player player) {
+  public Boolean goToBank(Player player) {
 
     // prompt the user if they would like to visit the bank
     System.out.printf(View.START_ADVENTURE, player.getName());
@@ -95,20 +98,26 @@ public class Game {
 
       // if user input is rob bank, rob the bank
       if (response[0].equalsIgnoreCase("rob")) {
-        System.out.println(View.ROB_OPTION);
+        if (getRandomNum(1,100) > 50) {
+          System.out.println(View.ROB_OPTION);
+          // adjust wallet to include $10000
+          player.setWallet(10000);
+          return true;
+        } else {
+          System.out.println(" You took your chances and were arrested!");
+          System.out.println(View.LOSE);
+          return false;
+        }
 
-        // adjust wallet to include $10000
-        player.setWallet(10000);
-        break;
         // else if user input is check bank account
       } else if (response[0].equalsIgnoreCase("check")) {
         System.out.println(View.CHECK_BANK_ACCOUNT);
         // give the user $600
         player.setWallet(600);
-        break;
+        return true;
       } else if (response[0].equalsIgnoreCase("no")) {
         System.out.println(View.NO_BANK);
-        break;
+        return true;
       } else {
         // else invalid input, try again
         System.out.println(View.INPUT_INVALID);
@@ -125,13 +134,19 @@ public class Game {
       String[] response = handler.processInput(player);
       if (response[0].equalsIgnoreCase("buy")) {
         if (worldClass.items.stream().anyMatch(x -> x.getName().equalsIgnoreCase(response[1]))) {
-          player.getInventory().add(response[1]);
-          player.setWallet(player.getWallet() - 500);
-          break;
+          if (player.getWallet() < worldClass.itemsAirport.get(response[1]).getPrice()
+              || player.getWallet() - worldClass.itemsAirport.get(response[1]).getPrice() < 0) {
+            System.out.println(" You do not have enough money for this item.");
+          } else {
+            player.getInventory().add(response[1]);
+            player.setWallet(
+                player.getWallet() - worldClass.itemsAirport.get(response[1]).getPrice());
+            break;
+          }
         }
       } else if (response[0].equalsIgnoreCase("look")) {
         if (worldClass.items.stream().anyMatch(x -> x.getName().equalsIgnoreCase(response[1]))) {
-          System.out.println(" " + worldClass.itemsAirport.get(response[1]).getDescription());
+          System.out.println(" $" + worldClass.itemsAirport.get(response[1]).getPrice() +", " + worldClass.itemsAirport.get(response[1]).getDescription());
         } else {
           System.out.println(View.INPUT_INVALID);
         }
@@ -156,26 +171,25 @@ public class Game {
         handler.checkInput(input, player);
       }
 
-
       if (optionList.get(0).equalsIgnoreCase(input[1])) {
-        if (player.getInventory().contains(storeList.get(0).toLowerCase())){
+        if (player.getInventory().contains(storeList.get(0).toLowerCase())) {
           System.out.println(" " + worldClass.guidePrompts.get(country).getJewel());
           return true;
-        }
-        else {
+        } else {
           System.out.println(" You chose the wrong item for this adventure");
           System.out.println(View.LOSE);
           return false;
         }
-      }
-      else if (optionList.get(1).equalsIgnoreCase(input[1])) {
+      } else if (optionList.get(1).equalsIgnoreCase(input[1])) {
         System.out.println(worldClass.guidePrompts.get(country).getLose());
         System.out.println(View.LOSE);
         return false;
       }
     }
+  }
 
-
+  public int getRandomNum(int min, int max) {
+    return (int) ((Math.random() * (max - min)) + min);
   }
 
   public State getState() {

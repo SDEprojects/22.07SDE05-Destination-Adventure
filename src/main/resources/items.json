@@ -1,50 +1,62 @@
 [
   {
     "name":"catnip",
-    "description": "a tasty treat for cats"
+    "description": "a tasty treat for cats",
+    "price": 200
   },
   {
     "name": "cattoy",
-    "description": "a shiny squeaky mouse toy"
+    "description": "a shiny squeaky mouse toy",
+    "price" : 100
   },
   {
     "name": "treats",
-    "description": "tasty treats that kangeroos seem to enjoy"
+    "description": "tasty treats that kangeroos seem to enjoy",
+    "price" : 150
   },
   {
     "name": "scubagear",
-    "description": "scuba diving gear for the ocean"
+    "description": "scuba diving gear for the ocean",
+    "price" : 500
   },
   {
     "name": "barrel",
-    "description": "a large sturdy barrel that you can ride in"
+    "description": "a large sturdy barrel that you can ride in",
+    "price" : 500
   },
   {
     "name": "strawhat",
-    "description": "a fine straw hat to shade your face from the sun"
+    "description": "a fine straw hat to shade your face from the sun",
+    "price" : 250
   },
   {
     "name": "repelgear",
-    "description": "gear for repelling down cliffs and stuff"
+    "description": "gear for repelling down cliffs and stuff",
+    "price" : 1000
   },
   {
     "name": "cuybook",
-    "description": "Learn everythig about the South American dish, Cuy (aka Guinea Pig)!"
+    "description": "Learn everything about the South American dish, Cuy (aka Guinea Pig)!",
+    "price" : 400
   },
   {
     "name": "hikingkit",
-    "description": "This will help facilitate you to climb tough hikes on the island."
+    "description": "This will help facilitate you to climb tough hikes on the island.",
+    "price" : 900
   },
   {
     "name": "fakearmyuniform",
-    "description": "This might help you get inside the base."
+    "description": "This might help you get inside the base.",
+    "price" : 500
   },
   {
     "name": "airplane",
-    "description": "The plane can not land on the mountain. You have to find a way to get off the plane."
+    "description": "The plane can not land on the mountain. You have to find a way to get off the plane.",
+    "price" : 3000
   },
   {
     "name": "snowmobile",
-    "description": "You will ride the snowmobile to the top."
+    "description": "You will ride the snowmobile to the top.",
+    "price" : 1500
   }
 ]
