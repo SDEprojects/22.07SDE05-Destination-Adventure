@@ -2,11 +2,12 @@ package com.destination.adventure.model;
 
 public class Items {
 
+  // FIELDS
   String name;
   String description;
-
   int price;
 
+  // GETTERS AND SETTERS
   public int getPrice() {
     return price;
   }

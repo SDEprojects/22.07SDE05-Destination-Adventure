@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
 
 public class World {
 
-  // Fields
+  // FIELDS
   public List<Locations> locations;
   public List<Items> items;
   private List<Guide> guide;
@@ -21,6 +21,7 @@ public class World {
   public HashMap<String, Guide> guidePrompts;
   public HashMap<String, Items> itemsAirport;
 
+  // CONSTRUCTOR
   public World() throws IOException {
     Gson gson = new Gson();
     locations = load("destinations2.json", gson, new TypeToken<ArrayList<Locations>>() {

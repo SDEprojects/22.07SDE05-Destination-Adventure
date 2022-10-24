@@ -13,8 +13,10 @@ import javax.sound.sampled.UnsupportedAudioFileException;
 
 public class PlayMusic {
 
+  // FIELDS
   public static Clip clip;
 
+  // CONSTRUCTOR
   public static void RunMusic(String path) {
 
     try {
@@ -31,6 +33,7 @@ public class PlayMusic {
 
   }
 
+  // METHODS
   public static void decreaseVolume() {
     FloatControl gainControl = (FloatControl) clip.getControl(Type.MASTER_GAIN);
     gainControl.setValue(-10.0f);

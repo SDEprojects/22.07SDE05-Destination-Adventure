@@ -11,7 +11,6 @@ public class Game {
 
   // FIELDS
   private State state;
-  // Player Instance within Game
   private Player player = new Player();
   private InputHandler handler = new InputHandler();
   private World worldClass = new World();
@@ -22,19 +21,16 @@ public class Game {
   }
 
   // METHODS
-  //Display title and begin game music
   public void startGame() {
 //    PlayMusic.RunMusic("music.wav");
     System.out.println(View.TITLE);
   }
 
-  // No longer returns Player. We will not use the Player instance in the Main class
   public void playerSetUp() {
     String playerName = handler.setUp();
     player.setName(playerName);
   }
 
-  //  Display game information to user
   public void intro() {
   for (int i = 0; i < View.LOAD.length(); i++){
     System.out.printf("%c", View.LOAD.charAt(i));
@@ -76,6 +72,11 @@ public class Game {
       player.setCurrentLocation(countryName);
       // Introduce player to location
       System.out.println("\n " + worldClass.world.get(countryName).getDescription());
+      if (countryName.equalsIgnoreCase("antarctica")) {
+        System.out.println(" Nevermind, you were eaten by the aliens and monsters.");
+        System.out.println(View.LOSE);
+        return false;
+      }
       goToAirport(countryName);
       // Provide player with tips to get the jewel at that location
       System.out.println("\n " + worldClass.guidePrompts.get(countryName).getInstructions());
@@ -91,9 +92,6 @@ public class Game {
     return false;
   }
 
-
-  // SEATTLE HARD CODING
-  // bank method
   public Boolean goToBank(Player player) {
     // prompt the user if they would like to visit the bank
     System.out.printf(View.START_ADVENTURE, player.getName());
@@ -152,7 +150,6 @@ public class Game {
     }
   }
 
-
   public Boolean beginScenario(String country, Player player) {
 
       String[] input = handler.scenarioInputProcessor(country, player);
@@ -180,6 +177,7 @@ public class Game {
     return (int) ((Math.random() * (max - min)) + min);
   }
 
+  // GETTERS AND SETTERS
   public State getState() {
     return state;
   }

@@ -39,30 +39,24 @@ public class Player {
   public String getCurrentLocation() {
     return currentLocation;
   }
-
   public void setCurrentLocation(String currentLocation) {
     this.currentLocation = currentLocation;
   }
   public String getName() {
     return name;
   }
-
   public void setName(String name) {
     this.name = name;
   }
-
   public List<String> getInventory() {
     return inventory;
   }
-
   public void setInventory(List<String> inventory) {
     this.inventory = inventory;
   }
-
   public int getWallet() {
     return wallet;
   }
-
   public void setWallet(int wallet) {
     this.wallet = wallet;
   }
