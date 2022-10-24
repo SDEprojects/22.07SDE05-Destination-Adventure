@@ -11,14 +11,17 @@ import java.util.List;
 
 public class InputHandler {
 
+  // FIELDS
   private final TextParser input = new TextParser();
   World worldClass = new World();
   List<String> options = new ArrayList<String>(Arrays.asList("quit", "help", "status", "inventory", "stop",
       "play", "decrease", "increase"));
 
+  // CONSTRUCTOR
   public InputHandler() throws IOException {
   }
 
+  // METHODS
   public String setUp() {
     System.out.println(View.PLAYER_NAME);
     String[] command = input.readUserInput();
@@ -39,27 +42,6 @@ public class InputHandler {
         System.out.println(View.DECISION);
       }
     }
-  }
-
-  public String[] processInput(Player player) {
-    String[] command = input.readUserInput();
-    if (command[0].equalsIgnoreCase("go")) {
-//      List<String> countries = Arrays.asList(View.COUNTRIES);
-      while (true) {
-        String[] finalCommand = command;
-        if (worldClass.locations.stream()
-            .noneMatch(x -> x.getName().equalsIgnoreCase(finalCommand[1]))) {
-          System.out.println(View.INVALID_COUNTRY);
-          command = processInput(player);
-        } else {
-          // break loop if valid country name is given
-          break;
-        }
-      }
-    } else {
-      checkInput(command, player);
-    }
-    return command;
   }
 
   public String bankInputProcessor(Player player) {
@@ -136,14 +118,6 @@ public class InputHandler {
     }
   }
 
-  public String[] nextInput() {
-    // TODO: Edit to take in player's current location
-    System.out.println(" What would you like to do?");
-    return input.readUserInput();
-  }
-
-
-  // put at top of while loop so user input is constantly checking against these commands
   public void checkInput(String[] text, Player player) {
     if (text[0].equalsIgnoreCase("quit")) {
       System.out.println(" Quitting the game!!");

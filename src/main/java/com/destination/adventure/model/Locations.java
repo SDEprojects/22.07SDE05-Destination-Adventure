@@ -5,7 +5,7 @@ package com.destination.adventure.model;
 
 public class Locations {
 
-  // Fields (Match JSON doc = destinations2.json)
+  // FIELDS
   String name;
   String description;
   String[] store;
