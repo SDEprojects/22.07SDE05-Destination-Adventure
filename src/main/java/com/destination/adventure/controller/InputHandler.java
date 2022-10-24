@@ -132,13 +132,13 @@ public class InputHandler {
     } else if (text[0].equalsIgnoreCase("inventory")) {
       System.out.println(View.INVENTORY);
       System.out.println(" " + player.getInventory() + "\n");
-    } else if (text[0].equalsIgnoreCase("stop") && text[1].equalsIgnoreCase("music")) {
+    } else if (text[0].equalsIgnoreCase("stop")) {
       PlayMusic.clip.stop();
-    } else if (text[0].equalsIgnoreCase("play") && text[1].equalsIgnoreCase("music")) {
+    } else if (text[0].equalsIgnoreCase("play")) {
       PlayMusic.clip.start();
-    } else if (text[0].equalsIgnoreCase("decrease") && text[1].equalsIgnoreCase("volume")) {
+    } else if (text[0].equalsIgnoreCase("decrease")) {
       PlayMusic.decreaseVolume();
-    } else if (text[0].equalsIgnoreCase("increase") && text[1].equalsIgnoreCase("volume")) {
+    } else if (text[0].equalsIgnoreCase("increase")) {
       PlayMusic.increaseVolume();
     }
   }

@@ -47,7 +47,7 @@ public class View {
       " \n Loading....DESTINATION ADVENTURE....\n";
   public static final String OBJECTIVE =
       "\n There is a treasure to be found in this world, one that will take away all your worries.\n"
-          + " You will travel the world, facing challenges and unforgettable memories to find it.";
+          + " You will travel through the various continents, facing challenges and unforgettable memories to find it.";
   public static final String WELCOME_OBJECTIVE = View.ANSI_GREEN +
       "\n YOUR OBJECTIVE:\n" + View.ANSI_RESET
       + " In order to find the treasure, you must travel to various destinations around the world to find the jewels that will lead you there.\n"
@@ -103,6 +103,7 @@ public class View {
           + " type look [item] to see a description of the item.\n"
           + " type 'no store' to skip shopping...";
   public static final String INVENTORY = " The following is the list of items you have in your possession:";
+  public static final String QUIT_GAME = "\n Maybe next time then...";
 
   // Colors for text
   public static final String ANSI_RESET = "\u001B[0m";
