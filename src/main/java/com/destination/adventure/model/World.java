@@ -15,11 +15,11 @@ public class World {
 
   // Fields
   public List<Locations> locations;
-   List<Items> items;
+  public List<Items> items;
   private List<Guide> guide;
-  HashMap<String, Locations> world;
-  HashMap<String, Guide> guidePrompts;
-  HashMap<String, Items> itemsAirport;
+  public HashMap<String, Locations> world;
+  public HashMap<String, Guide> guidePrompts;
+  public HashMap<String, Items> itemsAirport;
 
   public World() throws IOException {
     Gson gson = new Gson();
