@@ -22,7 +22,7 @@ public class Game {
 
   // METHODS
   public void startGame() {
-//    PlayMusic.RunMusic("music.wav");
+    PlayMusic.RunMusic("music.wav");
     System.out.println(View.TITLE);
   }
 

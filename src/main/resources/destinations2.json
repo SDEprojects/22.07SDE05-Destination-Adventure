@@ -22,7 +22,7 @@
   },
   {
     "name": "zambia",
-    "description" : "You arrive at the Harry Mwanga Nkumbula airport in Zambia. You look around, taking in the scenery and people.",
+    "description" : "You arrive at the Harry Mwanga Nkumbula airport in Zambia. You look around, taking in the scenery around you.",
     "store" : ["Barrel", "StrawHat"],
     "jewel": true,
     "options" : ["car", "tourBus"]

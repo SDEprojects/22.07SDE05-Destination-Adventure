@@ -3,6 +3,7 @@ package com.destination.adventure.controller;
 import com.destination.adventure.model.Game;
 import com.destination.adventure.model.Player;
 import com.destination.adventure.model.State;
+import com.destination.adventure.view.View;
 import java.io.IOException;
 import org.json.simple.parser.ParseException;
 
@@ -15,6 +16,7 @@ public class Main {
     game.intro();
 
     if (!handler.playOrNot()) {
+      System.out.println(View.QUIT_GAME);
       System.exit(0);
     }
 
