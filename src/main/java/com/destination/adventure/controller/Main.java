@@ -3,6 +3,7 @@ package com.destination.adventure.controller;
 import com.destination.adventure.model.Game;
 import com.destination.adventure.model.Player;
 import com.destination.adventure.model.State;
+import com.destination.adventure.view.View;
 import java.io.IOException;
 import org.json.simple.parser.ParseException;
 
@@ -10,25 +11,25 @@ public class Main {
 
   public static void main(String[] args) throws IOException, ParseException {
 
-    // Game set-up, Greeting & Objective
     Game game = new Game(State.GAME_ACTIVE);
     InputHandler handler = new InputHandler();
-
-    game.startGame();
-
-    Player player = game.playerSetUp();
-    game.objective();
-
-
+    game.intro();
 
     if (!handler.playOrNot()) {
-      game.setState(State.GAME_OVER);
+      System.out.println(View.QUIT_GAME);
+      System.exit(0);
     }
+
+    game.startGame();
+    game.playerSetUp();
+    game.objective();
 
     while (!game.getState().gameOver()) {
-      game.playGame();
-      game.setState(State.GAME_OVER);
+      if (!game.playGame()) {
+        game.setState(State.GAME_OVER);
+      } else {
+        game.setState(State.GAME_OVER);
+      }
     }
-
   }
 }

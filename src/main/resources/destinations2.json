@@ -1,45 +1,45 @@
 [
   {
     "name" : "italy",
-    "description" : "You arrive at the airport in Italy. You take a second to admire your surroundings. Your phone rings/ your guide turns to you.",
-    "store" : ["catnip", "cat toy"],
+    "description" : "You arrive at the airport in Italy. You take a second to admire your surroundings.",
+    "store" : ["CatNip", "CatToy"],
     "jewel": true,
-    "options" : ["store", "colosseum", "teleport"]
+    "options" : ["colosseum", "pompeii"]
   },
   {
     "name": "ecuador",
-    "description" : "You arrive at the airport in Ecuador. You smell fresh {Ecuadorian Food} coming from a nearby restaurant. Your phone rings/ your guide turns to you.",
-    "store" : ["repel gear", "Cuy book"],
+    "description" : "You arrive at the airport in Ecuador. You smell fresh Ecuadorian food coming from a nearby restaurant.",
+    "store" : ["RepelGear", "CuyBook"],
     "jewel": true,
-    "options" : ["store", "tourBus", "skyDive", "teleport"]
+    "options" : ["tourBus", "skyDive"]
   },
   {
     "name" : "australia",
-    "description" : "You arrive at the airport in Australia. You take a second to admire your surroundings. Your phone rings/ your guide turns to you.",
-    "store" : ["kangaroo treats", "scuba gear"],
+    "description" : "You arrive at the airport in Australia. You take a second to admire your surroundings.",
+    "store" : ["Treats", "ScubaGear"],
     "jewel": true,
-    "options" : ["store", "scuba", "safari", "teleport"]
+    "options" : ["sanctuary", "scuba"]
   },
   {
     "name": "zambia",
-    "description" : "You arrive at the Harry Mwanga Nkumbula airport in Zambia. You look around, taking in the scenery and people. Your phone rings/ your guide turns to you.",
-    "store" : ["safepads", "straw hat"],
+    "description" : "You arrive at the Harry Mwanga Nkumbula airport in Zambia. You look around, taking in the scenery around you.",
+    "store" : ["Barrel", "StrawHat"],
     "jewel": true,
-    "options" : ["store", "car", "tourBus", "teleport"]
+    "options" : ["car", "tourBus"]
   },
   {
     "name": "hawaii",
     "description" : "Aloha, you have arrived at one of the beautiful islands in the Pacific. You are on the island of Oahu. Please enjoy the beautiful beaches all around the island. Mahalo!!!",
-    "store" : ["hiking kit", "fake army uniform"],
+    "store" : ["HikingKit", "FakeArmyUniform"],
     "jewel": true,
-    "options" : ["store", "base", "stairway", "teleport"]
+    "options" : ["stairway", "base"]
   },
   {
     "name": "nepal",
     "description" : "Namaste, Welcome to the land of Gurkha. You are in one of the beautiful countries of South Asia. It contains eight of the ten world’s tallest mountains. The world tallest mountain Mt. Everest is also located in Nepal. Enjoy the culture here natural beauty and food. ",
-    "store" : ["airplane", "snow mobile"],
+    "store" : ["Airplane", "SnowMobile"],
     "jewel": true,
-    "options" : ["store", "plane", "snowmobile", "teleport"]
+    "options" : ["plane", "snowmobile"]
   },
 
   {

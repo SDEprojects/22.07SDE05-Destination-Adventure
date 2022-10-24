@@ -1,20 +1,22 @@
 package com.destination.adventure.model;
 
-import com.google.gson.Gson;
-import com.google.gson.annotations.SerializedName;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.Reader;
-import java.lang.reflect.Type;
+
+
 
 public class Locations {
 
-  // Fields (Match JSON doc = destinations2.json)
+  // FIELDS
   String name;
   String description;
   String[] store;
   Boolean jewel;
   String[] options;
+
+
+
+
+
+
 
 
   // Getters and Setters

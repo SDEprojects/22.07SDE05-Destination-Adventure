@@ -1,45 +1,38 @@
 [
   {
     "country":"italy",
-    "instructions": "The jewel here is located in the Colosseum but retrieving it will be no easy task.",
-    "jewel" : "You enter the Colosseum and find yourself in the fighting pit. You see Caeser the lion and you panic.. You check your pocket for anything that might help. You take out the catnip and strategically place it behind a stone pillar to distract Caeser and take jewel out of his cage.",
-    "lose" : "You enter the Colosseum and find yourself in the fighting pit. You see Caeser the lion and you panic... You check your pocket for anything that might help. You pull the cat toy out of your pocket and attempt to play with Caeser. Seems like Caeser is not in the mood to play...",
-    "lose2" : "You enter the Colosseum and find yourself in the fighting pit. You see Caeser the lion and you panic... You check your pocket for anything that might help. You have nothing in your pockets! You hide behind a stone pillar but you hear Caeser's footsteps slowly get closer and closer..."
+    "instructions": "Retrieving the jewel here will be no easy task. You can go to the Colosseum [explore colosseum] or you can travel to Pompeii [explore pompeii].",
+    "jewel" : "\n You enter the Colosseum and find yourself in the fighting pit. You see Caeser the lion and you panic.. You check your pocket for anything that might help.\n You take out the catnip and strategically place it behind a stone pillar to distract Caeser and take jewel out of his cage.",
+    "lose" : "\n You make it to Pompeii and begin to scale Mt. Vesuvius. You reach the top but on your last step, you feel the ground shift and you lose your balance.."
   },
   {
     "country":"australia",
-    "instructions": "To find this jewel, you will most certainly check a box off of your bucket list.",
-    "jewel" : "You reach the kangaroo sanctuary and you spot Kangaroo Jill. You pull out the kangaroo treats and begin to lure Kangaroo Jill closer. Once she starts eating the treats from your hand, you notice the jewel in her kangaroo pouch. You sneakily take the jewel from Kangaroo Jill as she finishes eating the treats. ",
-    "lose" : "You reach the Great Barrier Reef and equip your scuba gear. You plunge into the water and begin to descend. As you approach the coral reef, you notice a school of Box jellyfish surrounding you. You can’t get away from them and one stings you. The pain is intolerable and you cannot continue... "
+    "instructions": "To find this jewel, you will most certainly check a box off of your bucket list.\n You can go to the Kangaroo Sanctuary [explore sanctuary] or you can go scuba diving [explore scuba] at the Great Barrier Reef. What would you like to do?",
+    "jewel" : "\n You reach the kangaroo sanctuary and you spot Kangaroo Jill. You pull out the kangaroo treats and begin to lure Kangaroo Jill closer.\n Once she starts eating the treats from your hand, you notice the jewel in her kangaroo pouch.\n You sneakily take the jewel from Kangaroo Jill as she finishes eating the treats. ",
+    "lose" : "\n You reach the Great Barrier Reef and equip your scuba gear. You plunge into the water and begin to descend.\n As you approach the coral reef, you notice a school of Box jellyfish surrounding you.\n You can’t get away from them and one stings you. The pain is intolerable and you cannot continue... "
   },
   {
     "country":"zambia",
-    "instructions": "The jewel here will take you to one of the seven natural wonders of the world. First, you must find a way to get to the side of Mosi-Oa-Tunya Falls, also known as Victoria Falls. Just after you go over the edge of the falls, you must find a cavern behind the water that will lead you to the jewel. ",
-    "jewel" : "Your guide wishes you luck as you hop out of the truck with your barrel. You climb into the barrel and roll into the river. The barrel strikes many obstacles in the river that would otherwise take you out. You see the edge of the waterfall and prepare for the fall. As you go over, you grab a pultruding branch from the waterfall cliff side find the secret cavern behind the water. You find a shiny bright yellow diamond at the end of the cavern’s path. Your guide is waiting for you by helicopter just outside the cavern's entrance.",
-    "lose" : "Before you can make it to the edge of the falls, a rock snags your leg injuring you severely! You grab onto another rock and wait to be airlifted to a hospital. You are no longer able to continue your adventure. \uD83D\uDE41"
+    "instructions": "The jewel here will take you to one of the seven natural wonders of the world.\n You must find a way to get to the side of Mosi-Oa-Tunya Falls, also known as Victoria Falls.\n You can travel by Tour Bus [explore TourBus] or by car [explore car].",
+    "jewel" : "\n Your driver wishes you luck as you hop out of the truck with your barrel. You climb into the barrel and roll into the river. \n The barrel strikes many obstacles in the river that would otherwise take you out. You see the edge of the waterfall and prepare for the fall.\n As you go over, you grab a protruding branch from the waterfall cliff side find the secret cavern behind the water.\n You find a shiny bright yellow diamond at the end of the cavern’s path. Skip ordered a helicopter that is waiting for you by helicopter just outside the cavern's entrance.",
+    "lose" : "\n Before you can make it to the edge of the falls, a rock snags your leg injuring you severely! You grab onto another rock and wait to be airlifted to a hospital. You are no longer able to continue your adventure. \uD83D\uDE41"
   },
   {
     "country":"ecuador",
-    "instructions": "It looks like things will get HOT trying to get this jewel. Legend says that the jewel is located in the mouth of the famous high-altitude volcano, Cotopaxi. You must find a way into the volcano’s mouth to grab the jewel and continue on your adventure. When you finish ascending Cotopaxi, don’t forget to say a prayer to the Gods of the Andean people.",
-    "jewel" : "Take a tour to the base of a mountain, pay the tour guide for an adventure bike. Taking the road up is longer, but yields a hidden entrance toe the center of the volcano where you find the jewel.",
-    "lose" : "temp text"
+    "instructions": "It looks like things will get HOT trying to get this jewel. Legend says that the jewel is located in the mouth of the famous high-altitude volcano, Cotopaxi.\n You must find a way into the volcano’s mouth to grab the jewel and continue on your adventure.\n Type 'explore TourBus' to take the bus up the mountain, or type 'explore skyDive' to skydive to the top of the mountain.",
+    "jewel" : "\n Take a tour to the base of a mountain, pay the tour guide for an adventure bike.\n Taking the road up is longer, but yields a hidden entrance toe the center of the volcano where you find the jewel.",
+    "lose" : "\n You take a plane and jump out as soon as the mountain comes into view. Your timing is off and you miss the peak by 100ft. Splat."
   },
   {
     "country": "hawaii",
-    "instructions": "Hello Adventurous traveler, I see you are in search of a jewel which is secretly embedded somewhere on the island. There are two possible locations of the jewel. You must choose one. You can also visit the airport store before you head towards your adventure.",
-    "jewel" : "Great choice traveler, this is one of the most beautiful hikes in the island. This is about 9 miles round trip and might take 4-7 hours depending upon your strength.",
-    "lose" : "You have been shot by the guard at the gate when you try to enter the base without military id or a pass.  Your fake Army Uniform did not work. You are dead.  "
+    "instructions": "Hello Adventurous traveler, I see you are in search of a jewel which is secretly embedded somewhere on the island.\n There are two possible locations for the jewel.\n You can sneak into the army base [explore base] or you can hike the Stairway to Heaven [explore stairway]",
+    "jewel" : "\n Great choice traveler, this is one of the most beautiful hikes in the island. This is about 9 miles round trip and might take 4-7 hours depending upon your strength.",
+    "lose" : "\n You have been shot by the guard at the gate when you try to enter the base without military id or a pass. Your fake Army Uniform did not work. You are dead.  "
   },
   {
     "country":"nepal",
-    "instructions": "Hello Traveler, Welcome to Nepal. I am going to present you with options of getting the jewel. It is buried on top of Mt Everest. Let me tell you now it is not easy to get to the top. You can visit the store to get the things you need to be successful in your adventure.",
-    "jewel" : "Great choice. You have obtained the jewel from the mountain. ",
-    "lose" : "Not a good choice. You have been killed by the avalanche while going up in the snowmobile. Better Luck next life."
-  },
-  {
-    "country":"antarctica",
-    "instructions": "No guide. Encounters with scary alien who speaks alien language.",
-    "lose" : "You have been eaten by the aliens. The monsters are jelly.",
-    "lose2" : "You have been killed by the monsters."
+    "instructions": "Hello Traveler, Welcome to Nepal. I am going to present you with options of getting the jewel.\n It is buried on top of Mt Everest. Let me tell you now it is not easy to get to the top.\n You can venture to the top by plane [explore plane] or by snowmobile [explore snowmobile].",
+    "jewel" : "\n Great choice. You have obtained the jewel from the mountain. ",
+    "lose" : "\n Not a good choice. You have been killed by the avalanche while going up in the snowmobile. Better Luck next life."
   }
 ]

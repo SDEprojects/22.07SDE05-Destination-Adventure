@@ -13,14 +13,15 @@ import java.util.stream.Collectors;
 
 public class World {
 
-  // Fields
-  private List<Locations> locations;
-   List<Items> items;
+  // FIELDS
+  public List<Locations> locations;
+  public List<Items> items;
   private List<Guide> guide;
-  HashMap<String, Locations> world;
-  HashMap<String, Guide> guidePrompts;
-  HashMap<String, Items> itemsAirport;
+  public HashMap<String, Locations> world;
+  public HashMap<String, Guide> guidePrompts;
+  public HashMap<String, Items> itemsAirport;
 
+  // CONSTRUCTOR
   public World() throws IOException {
     Gson gson = new Gson();
     locations = load("destinations2.json", gson, new TypeToken<ArrayList<Locations>>() {
@@ -37,15 +38,6 @@ public class World {
     itemsAirport = (HashMap<String, Items>) items.stream()
         .collect(Collectors.toMap(Items::getName, item -> item));
   }
-
-//  public static void main(String[] args) throws IOException {
-//    World world = new World();
-//    System.out.println(world);
-//
-//    System.out.println(world.world.get("italy").getDescription());
-//    System.out.println(world.guidePrompts.get("italy").getInstructions());
-//    System.out.println(world.itemsAirport.get("catnip").getDescription());
-//}
 
   // GSON Loader
   private <T> T load(String resourceFile, Gson gson, Type type) throws IOException {
