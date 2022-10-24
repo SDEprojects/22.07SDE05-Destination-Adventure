@@ -10,21 +10,27 @@ public class Main {
 
   public static void main(String[] args) throws IOException, ParseException {
 
-    // Game set-up, Greeting & Objective
+    // Game instance created
     Game game = new Game(State.GAME_ACTIVE);
+    // Input handler instance created
     InputHandler handler = new InputHandler();
 
-    game.startGame();
+    // Show game introduction to the user
+    game.intro();
 
-    Player player = game.playerSetUp();
-    game.objective();
-
-
-
+    // Ask the User if they would like to play the game
     if (!handler.playOrNot()) {
       game.setState(State.GAME_OVER);
     }
 
+    // Show game title & play music
+    game.startGame();
+    // set-up player in the game
+    game.playerSetUp();
+    // Show game objective to the user (refresher)
+    game.objective();
+
+    // play the game
     while (!game.getState().gameOver()) {
       if (!game.playGame()) {
         game.setState(State.GAME_OVER);

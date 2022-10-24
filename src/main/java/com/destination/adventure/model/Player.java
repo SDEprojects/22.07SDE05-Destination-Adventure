@@ -6,22 +6,17 @@ import java.util.Objects;
 
 public class Player {
 
+  // FIELDS
   private String name;
   private List<String> inventory = new ArrayList<>();
   private int wallet = 0;
-
-
   private String currentLocation = "seattle";
 
-
-
+  // CONSTRUCTORS
   public Player() {
   }
 
-  public Player(String name) {
-    setName(name);
-  }
-
+  // METHODS
   public Boolean checkJewels() {
     int jewelCount = 0;
 
@@ -40,6 +35,7 @@ public class Player {
     }
   }
 
+  // GETTERS AND SETTERS
   public String getCurrentLocation() {
     return currentLocation;
   }
@@ -74,6 +70,9 @@ public class Player {
 
   @Override
   public String toString() {
-    return super.toString();
+
+    return "Player Name: ${name}\n"
+        + "Player Inventory: ${inventory}\n"
+        + "Player Wallet: $${wallet}";
   }
 }

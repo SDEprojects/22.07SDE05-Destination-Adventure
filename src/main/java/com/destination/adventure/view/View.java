@@ -29,6 +29,10 @@ public class View {
       + "  █▄█ █▀█ █░█   █░█░█ █ █▄░█\n"
       + "  ░█░ █▄█ █▄█   ▀▄▀▄▀ █ █░▀█";
 
+  public static final String WIN_SCENARIO = " The ground begins to shake around you. You are surrounded by a blinding light\n"
+      + " as you feel your body fall beneath you. You are teleorted to the treasure!\n"
+      + " The riches are beyond what you ever imagined. Congratulations! You have won the game!";
+
   public static final String LOSE = "\n"
       + "  █▄█ █▀█ █░█   █░░ █▀█ █▀ █▀▀\n"
       + "  ░█░ █▄█ █▄█   █▄▄ █▄█ ▄█ ██▄";
@@ -41,9 +45,15 @@ public class View {
       + "  ██████╦╝╚██████╔╝██████╔╝░░░██║░░░███████╗██████╔╝\n"
       + "  ╚═════╝░░╚═════╝░╚═════╝░░░░╚═╝░░░╚══════╝╚═════╝░";
   public static final String OBJECTIVE =
-      "\n There is a treasure to be found in this world, one that will take away all your worries.\n"
-          + " In order to find it, you must travel to various destinations around the world to find the jewels that will lead you there.\n"
-          + " There are 6 jewels hidden around the world. Find at least 4, and you will find the treasure.";
+      "\n Loading....DESTINATION ADVENTURE....\n"
+          + "\n There is a treasure to be found in this world, one that will take away all your worries.\n"
+          + " You will travel the world, facing challenges and unforgettable memories to find it.";
+
+  public static final String WELCOME_OBJECTIVE =
+      "\n YOUR OBJECTIVE:\n"
+          + " In order to find the treasure, you must travel to various destinations around the world to find the jewels that will lead you there.\n"
+          + " There are 6 jewels hidden around the world, and 7 different destinations to explore to try and find them!\n"
+          + " Find at least 4 jewels, and you will find the treasure.";
 
   public static final String HELP = "\n Skip: No worries! Let's review our objectives!\n"
       + " Objective: you must travel to various destinations around the world to find the jewels that will lead you there.\n"
@@ -59,11 +69,11 @@ public class View {
       " Skip: Before you embark on your journey %S, would you like to visit the bank to increase your funds? \n"
           + " You currently have $0 in your wallet.\n";
 
-  public static final String BANK_OPTIONS = "\n You have some options on how you can interact with the bank. Robbing it is risky, but it's one of em!"
-      + " Skip: Would you like to: \n"
-      + " (a) rob the bank [type: rob bank]\n"
-      + " (b) check your bank account [type: check account]\n"
-      + " (c) bypass bank and go to initial adventure [type: no bank]";
+  public static final String BANK_OPTIONS = "\n Skip: You have some options on how you can interact with the bank.\n"
+      + " Robbing it is risky, but it's one of em! Type your command: \n"
+      + " (a) [rob the bank]\n"
+      + " (b) [check bank account]\n"
+      + " (c) [no bank] - skip the bank!";
 
   public static final String ROB_OPTION = "\n Skip: You successfully rob the bank!\n"
       + " You hand the teller a note demanding money with no funny business.\n"
@@ -89,14 +99,12 @@ public class View {
 
   public static final String INVALID_COUNTRY = " Country Name Invalid. Please try again";
   public static final String AIRPORT = " Skip: You have the option to buy something from the airport store. Here is the store inventory: ";
-  public static final String AIRPORT_OPTIONS = " Skip: Welcome to the airport store!\n"
-      + " You can:\n"
+  public static final String AIRPORT_OPTIONS = " Skip: Welcome to the airport store! You can:\n"
       + " type buy [item] to buy an item from the store.\n"
       + " type look [item] to see a description of the item.\n"
       + " type 'no store' to skip shopping...";
 
   public static final String INVENTORY = " The following is the list of items you have in your possession:";
-
 }
 
 
