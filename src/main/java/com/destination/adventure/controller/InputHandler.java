@@ -34,9 +34,9 @@ public class InputHandler {
     while (true) {
       System.out.println(View.DECISION);
       String[] answer = input.readUserInput();
-      if (answer[0].equals("yes")) {
+      if (answer[0].equalsIgnoreCase("yes")) {
         return true;
-      } else if (answer[0].equals("no")) {
+      } else if (answer[0].equalsIgnoreCase("no")) {
         return false;
       } else {
         System.out.println(View.DECISION);
@@ -125,13 +125,13 @@ public class InputHandler {
     } else if (text[0].equalsIgnoreCase("help")) {
       System.out.println(View.HELP);
     } else if (text[0].equalsIgnoreCase("status")) {
-      System.out.println("\n Skip: Here is your current status:\n");
-      System.out.println(" Location: " + player.getCurrentLocation());
+      System.out.println("\n " + View.ANSI_GREEN + "Skip:" + View.ANSI_RESET + " Here is your current status:\n");
+      System.out.println(" Location: " + player.getCurrentLocation().toUpperCase());
       System.out.println(" Wallet $" + player.getWallet());
       System.out.println(" Inventory: " + player.getInventory());
     } else if (text[0].equalsIgnoreCase("inventory")) {
       System.out.println(View.INVENTORY);
-      System.out.println(" " + player.getInventory());
+      System.out.println(" " + player.getInventory() + "\n");
     } else if (text[0].equalsIgnoreCase("stop") && text[1].equalsIgnoreCase("music")) {
       PlayMusic.clip.stop();
     } else if (text[0].equalsIgnoreCase("play") && text[1].equalsIgnoreCase("music")) {

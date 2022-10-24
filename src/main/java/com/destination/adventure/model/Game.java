@@ -35,7 +35,7 @@ public class Game {
   for (int i = 0; i < View.LOAD.length(); i++){
     System.out.printf("%c", View.LOAD.charAt(i));
     try{
-      Thread.sleep(150);
+      Thread.sleep(125);
     }catch (InterruptedException ex){
       Thread.currentThread().interrupt();
     }
@@ -51,26 +51,20 @@ public class Game {
   public Boolean playGame() {
     System.out.println(View.STARTING_LOCATION);
     Boolean robOrFail = goToBank(player);
-    // end game if player fails to rob the bank
     if (!robOrFail) {
       return false;
     }
 
     while (true) {
-      // check player inventory before each destination round to determine if win game:
       Boolean jewel = player.checkJewels();
       if (jewel) {
-        // added win scenario
         System.out.println(View.WIN_SCENARIO);
         System.out.println(View.WIN);
         return true;
       }
-      // give user destination options
       System.out.println(View.DESTINATION);
-      // grab user input
       String countryName = handler.countryInputProcessor(player);
       player.setCurrentLocation(countryName);
-      // Introduce player to location
       System.out.println("\n " + worldClass.world.get(countryName).getDescription());
       if (countryName.equalsIgnoreCase("antarctica")) {
         System.out.println(" Nevermind, you were eaten by the aliens and monsters.");
@@ -78,10 +72,8 @@ public class Game {
         return false;
       }
       goToAirport(countryName);
-      // Provide player with tips to get the jewel at that location
-      System.out.println("\n " + worldClass.guidePrompts.get(countryName).getInstructions());
+      System.out.println(View.ANSI_YELLOW + "\n " + worldClass.guidePrompts.get(countryName).getInstructions() + "\n" + View.ANSI_RESET);
 
-      // begin scenario
       Boolean result = beginScenario(countryName, player);
       if (result) {
         player.getInventory().add("jewel");
@@ -93,16 +85,12 @@ public class Game {
   }
 
   public Boolean goToBank(Player player) {
-    // prompt the user if they would like to visit the bank
     System.out.printf(View.START_ADVENTURE, player.getName());
-    // give the user two options: rob the bank or check bank account
     System.out.println(View.BANK_OPTIONS);
     String response = handler.bankInputProcessor(player);
-    // if user input is rob bank, rob the bank
     if (response.equalsIgnoreCase("rob")) {
       if (getRandomNum(1, 100) > 50) {
         System.out.println(View.ROB_OPTION);
-        // adjust wallet to include $10000
         player.setWallet(10000);
         return true;
       } else {
@@ -111,10 +99,9 @@ public class Game {
         System.out.println(View.LOSE);
         return false;
       }
-      // else if user input is check bank account
+
     } else if (response.equalsIgnoreCase("check")) {
       System.out.println(View.CHECK_BANK_ACCOUNT);
-      // give the user $2000
       player.setWallet(2000);
       return true;
     } else if (response.equalsIgnoreCase("no") || response.equalsIgnoreCase("bypass")) {
