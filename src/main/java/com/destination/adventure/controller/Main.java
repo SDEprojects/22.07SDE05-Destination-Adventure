@@ -15,7 +15,7 @@ public class Main {
     game.intro();
 
     if (!handler.playOrNot()) {
-      game.setState(State.GAME_OVER);
+      System.exit(0);
     }
 
     game.startGame();

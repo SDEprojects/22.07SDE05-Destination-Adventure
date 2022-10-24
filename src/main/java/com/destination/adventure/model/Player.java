@@ -1,5 +1,6 @@
 package com.destination.adventure.model;
 
+import com.destination.adventure.view.View;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -27,10 +28,10 @@ public class Player {
     }
 
     if (jewelCount < 4) {
-      System.out.printf("\n You have %d jewels in your inventory.\n", jewelCount);
+      System.out.printf("\n You have " + View.ANSI_YELLOW + "%d" + View.ANSI_RESET + " jewels in your inventory.\n", jewelCount);
       return false;
     } else {
-      System.out.println(" You have 4 jewels! You are now being teleported to the treasure!");
+      System.out.println("\n You have 4 jewels! You are now being teleported to the treasure!\n");
       return true;
     }
   }
