@@ -36,6 +36,15 @@ public class Game {
 
   //  Display game information to user
   public void intro() {
+  for (int i = 0; i < View.LOAD.length(); i++){
+    System.out.printf("%c", View.LOAD.charAt(i));
+    try{
+      Thread.sleep(150);
+    }catch (InterruptedException ex){
+      Thread.currentThread().interrupt();
+    }
+  }
+
     System.out.println(View.OBJECTIVE);
   }
 

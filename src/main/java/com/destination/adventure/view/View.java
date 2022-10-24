@@ -44,9 +44,9 @@ public class View {
       + "  ██╔══██╗██║░░░██║░╚═══██╗░░░██║░░░██╔══╝░░██║░░██║\n"
       + "  ██████╦╝╚██████╔╝██████╔╝░░░██║░░░███████╗██████╔╝\n"
       + "  ╚═════╝░░╚═════╝░╚═════╝░░░░╚═╝░░░╚══════╝╚═════╝░";
-  public static final String OBJECTIVE =
-      "\n Loading....DESTINATION ADVENTURE....\n"
-          + "\n There is a treasure to be found in this world, one that will take away all your worries.\n"
+  public static final String LOAD =
+      " \nLoading....DESTINATION ADVENTURE....\n";
+  public static final String OBJECTIVE = "\n There is a treasure to be found in this world, one that will take away all your worries.\n"
           + " You will travel the world, facing challenges and unforgettable memories to find it.";
 
   public static final String WELCOME_OBJECTIVE =
